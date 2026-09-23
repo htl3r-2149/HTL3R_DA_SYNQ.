@@ -197,3 +197,32 @@ footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; g
   section { padding: 60px 0; }
   .hero { padding: 60px 0 40px; }
 }
+
+/* ---------- Antrag-Inhalte ---------- */
+.sub-h.first { margin-top: 0; }
+.goal .subs, .member .subs { margin: 10px 0 0 18px; color: var(--muted); font-size: .9rem; }
+.goal.non .id { background: #6b7684; }
+.member h3 { margin-bottom: 2px; }
+.member .zl { font-weight: 700; font-size: .85rem; margin-top: 12px; }
+.member .auf { margin-top: 12px; font-size: .9rem; }
+.member p { font-size: .92rem; }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+th { color: var(--accent-2); font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; background: var(--bg-2); }
+tr:last-child td { border-bottom: 0; }
+#risiken table { min-width: 900px; }
+#stakeholder table { min-width: 820px; }
+.note { color: var(--muted); font-size: .9rem; margin-top: 14px; }
+.portfolio { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 760px; }
+.pf { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; font-size: .92rem; }
+.pf b { display: block; color: var(--accent-2); margin-bottom: 6px; }
+.pf.hot { border-color: var(--accent); }
+.pf.hot b { color: var(--accent); }
+.matrix { background: #fff; border-radius: var(--radius); padding: 12px; max-width: 820px; }
+.grid-crit { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.hero .wrap > div { min-width: 0; }
+@media (max-width: 520px) { .portfolio { grid-template-columns: 1fr; } th, td { padding: 8px 10px; } }
+.section-head .num, h2, h3 { overflow-wrap: break-word; }
+.card p + p { margin-top: 12px; }
+#psp .section-head { max-width: none; }
