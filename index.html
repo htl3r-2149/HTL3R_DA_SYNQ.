@@ -1,299 +1,549 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Synq. – Verstaubare Studiokammer</title>
+  <title>Synq. – Verstaubare Studiokammer · Diplomarbeit HTL Rennweg 2026/27</title>
   <meta name="description" content="Eine modular auf- und abbaubare Studiokammer wird entwickelt, die für störungsarme Audioaufnahmen eingesetzt und nach der Nutzung platzsparend zerlegt und verstaut werden kann. Das Projekt verbindet Konstruktion und Akustik mit Audiointegration, Elektrotechnik, Netzwerk- und Serveranbindung sowie 3D-Modellierung und VR/AR-Visualisierung.">
-  <meta name="theme-color" content="#0b0d12">
+  <meta name="author" content="Kevin Zheng, Naila Subasic, Angelika Zimmermann, Maximilian Popek">
+  <meta name="theme-color" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_AT">
+  <meta property="og:site_name" content="Synq.">
   <meta property="og:title" content="Synq. – Verstaubare Studiokammer">
-  <meta property="og:description" content="Diplomarbeit 2026/27 an der HTL Rennweg: eine modulare Studiokammer, die schnell aufgebaut und platzsparend verstaut werden kann.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0d12'/%3E%3Cg fill='%23ff5a36'%3E%3Crect x='7' y='13' width='3' height='9' rx='1.5'/%3E%3Crect x='12.5' y='8' width='3' height='17' rx='1.5'/%3E%3Crect x='18' y='11' width='3' height='12' rx='1.5'/%3E%3C/g%3E%3Ccircle cx='24.5' cy='22' r='2' fill='%233fc1c9'/%3E%3C/svg%3E">
+  <meta property="og:description" content="Diplomarbeit 2026/27 an der HTL Rennweg (3R IT 27 06): eine modulare Studiokammer, die schnell aufgebaut und platzsparend verstaut werden kann.">
+  <meta property="og:url" content="https://htl3r-2149.github.io/HTL3R_DA_SYNQ./">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Synq. – Verstaubare Studiokammer">
+  <meta name="twitter:description" content="Diplomarbeit 2026/27 an der HTL Rennweg: modulare Studiokammer für störungsarme Audioaufnahmen.">
+  <!-- Favicon (Equalizer-Balken) wird von script.js aus den Palettenfarben erzeugt -->
+  <link rel="icon" id="favicon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
 </head>
-<body>
-<a class="skip" href="#idee">Zum Inhalt springen</a>
-<div class="progress" aria-hidden="true"></div>
+<body id="top">
 
-<header class="nav"><div class="wrap">
-  <a href="#top" class="logo" aria-label="Synq. – zum Seitenanfang"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><b style="font-weight:inherit">Synq<span>.</span></b></a>
-  <nav id="menu"><ul>
-    <li><a href="#idee">Idee</a></li>
-    <li><a href="#ziele">Ziele</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#stakeholder">Stakeholder</a></li>
-    <li><a href="#psp">PSP</a></li>
-    <li><a href="#risiken">Risiken</a></li>
-    <li><a href="#meilensteine">Meilensteine</a></li>
-    <li><a href="#ressourcen">Ressourcen</a></li>
-    <li><a href="#verwertung">Verwertung</a></li>
-  </ul></nav>
-  <button class="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu"><span></span></button>
-</div></header>
+<!-- ===== Logo-Symbole (aus den Plakaten) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="logo-hex" viewBox="0 0 100 110">
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M50 6 92 30v50L50 104 8 80V30Z" stroke="currentColor" stroke-width="6.5"/>
+        <path d="M15 34l15 8M85 34l-15 8" stroke="currentColor" stroke-width="6.5"/>
+        <g style="stroke:var(--accent-1)" stroke-width="5">
+          <rect x="40" y="29" width="20" height="37" rx="10"/>
+          <path d="M31 50v4a19 19 0 0 0 38 0v-4M50 73v27"/>
+          <path d="M40 41h6M54 41h6M40 48h6M54 48h6M40 55h6M54 55h6" stroke-width="3.6"/>
+        </g>
+      </g>
+      <circle cx="76" cy="47" r="4.2" style="fill:var(--accent-1)"/>
+    </symbol>
+    <symbol id="logo-word" viewBox="0 0 214 50">
+      <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M44 6H15C9.5 6 5 9.8 5 14.5S9.5 23 15 23h20c5.5 0 10 3.8 10 9s-4.5 9-10 9H5"/>
+        <path d="M56 6l18 15 18-15M74 21v20"/>
+        <path d="M104 41V6l35 35V6"/>
+        <path d="M163 6h18c5.5 0 10 4.5 10 10v25h-28c-6 0-11-5-11-11V17c0-6 5-11 11-11Z"/>
+        <path d="M178 29l15 15"/>
+      </g>
+      <circle cx="205" cy="41" r="5.5" style="fill:var(--accent-1)"/>
+    </symbol>
+  </defs>
+</svg>
 
-<main id="top">
-<!-- ===================== HERO ===================== -->
-<div class="hero">
-  <canvas id="waves" aria-hidden="true"></canvas>
-  <div class="wrap">
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<div class="progress" aria-hidden="true"><span id="progress"></span></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- ===================== Navigation ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Synq. – zum Seitenanfang">
+      <svg class="brand-hex" aria-hidden="true"><use href="#logo-hex"/></svg>
+      <svg class="brand-word" aria-hidden="true"><use href="#logo-word"/></svg>
+      <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    </a>
+    <nav class="menu" id="menu" aria-label="Hauptnavigation">
+      <a href="#idee">Idee</a>
+      <a href="#ziele">Ziele</a>
+      <a href="#team">Team</a>
+      <a href="#stakeholder">Stakeholder</a>
+      <a href="#psp">PSP</a>
+      <a href="#risiken">Risiken</a>
+      <a href="#meilensteine">Meilensteine</a>
+      <a href="#ressourcen">Ressourcen</a>
+      <a href="#partner">Partner</a>
+      <a href="#verwertung">Verwertung</a>
+    </nav>
+    <button class="tour-btn" id="tourBtn" type="button" aria-pressed="false" title="Vorführmodus für den Tag der offenen Tür: Die Seite läuft automatisch durch alle Kapitel.">
+      <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1.5v9l8-4.5z" fill="currentColor"/></svg><span class="lbl">Vorführung</span>
+    </button>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== Hero ===================== -->
+<section class="hero" id="hero" aria-labelledby="heroTitle">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="blob b3" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow fade-up"><span class="dot"></span>Diplomarbeit · Schuljahr 2026/27 · HTL Rennweg</span>
-      <h1 aria-label="Synq."><span class="ch">S</span><span class="ch">y</span><span class="ch">n</span><span class="ch">q</span><span class="ch">.</span></h1>
-      <p class="tagline fade-up d1">Verstaubare Studiokammer – <em>aufbauen, aufnehmen, verstauen.</em></p>
-      <p class="lead fade-up d2">Eine modular auf- und abbaubare Studiokammer wird entwickelt, die für störungsarme Audioaufnahmen eingesetzt und nach der Nutzung platzsparend zerlegt und verstaut werden kann. Das Projekt verbindet Konstruktion und Akustik mit Audiointegration, Elektrotechnik, Netzwerk- und Serveranbindung sowie 3D-Modellierung und VR/AR-Visualisierung.</p>
-      <div class="actions fade-up d3">
-        <a class="btn btn-primary" href="#idee">Projekt entdecken <span aria-hidden="true">↓</span></a>
-        <a class="btn btn-ghost" href="#team">Zum Team</a>
+      <span class="eyebrow"><span class="rec"><i></i>REC</span> Diplomarbeit · Schuljahr 2026/27 · HTL Rennweg</span>
+      <h1 id="heroTitle">
+        <span class="sr-only">Synq.</span>
+        <svg class="hero-word" viewBox="0 0 214 50" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+            <g class="L" style="--i:0"><path d="M44 6H15C9.5 6 5 9.8 5 14.5S9.5 23 15 23h20c5.5 0 10 3.8 10 9s-4.5 9-10 9H5"/></g>
+            <g class="L" style="--i:1"><path d="M56 6l18 15 18-15M74 21v20"/></g>
+            <g class="L" style="--i:2"><path d="M104 41V6l35 35V6"/></g>
+            <g class="L" style="--i:3"><path d="M163 6h18c5.5 0 10 4.5 10 10v25h-28c-6 0-11-5-11-11V17c0-6 5-11 11-11Z"/><path d="M178 29l15 15"/></g>
+          </g>
+          <circle class="dot" cx="205" cy="41" r="5.5" style="fill:var(--accent-1)"/>
+        </svg>
+      </h1>
+      <p class="hero-sub">Verstaubare Studiokammer</p>
+      <p class="tagline">Dein Sound · Deine Kammer</p>
+      <p class="hero-lead">Eine modular auf- und abbaubare Studiokammer wird entwickelt, die für störungsarme Audioaufnahmen eingesetzt und nach der Nutzung platzsparend zerlegt und verstaut werden kann. Das Projekt verbindet Konstruktion und Akustik mit Audiointegration, Elektrotechnik, Netzwerk- und Serveranbindung sowie 3D-Modellierung und VR/AR-Visualisierung.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#idee">Projekt entdecken
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+        <button class="btn mic-toggle" type="button" aria-pressed="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+          <span>Mikro-Demo starten</span></button>
       </div>
-      <div class="stats fade-up d4">
-        <div class="stat"><b><span data-count="20">20</span><small>dB</small></b><span>Ziel-Pegelreduktion (mind.)</span></div>
-        <div class="stat"><b data-count="7">7</b><span>Hauptziele</span></div>
-        <div class="stat"><b data-count="800">800</b><span>Personenstunden</span></div>
-        <div class="stat"><b data-count="7">7</b><span>Meilensteine</span></div>
+      <div class="stats" role="list">
+        <div class="stat" role="listitem"><b><span class="sr-only">mindestens </span><span data-count="20">20</span><small>dB</small></b><span>Ziel-Schallreduktion (mind.)</span></div>
+        <div class="stat" role="listitem"><b data-count="7">7</b><span>Hauptziele</span></div>
+        <div class="stat" role="listitem"><b data-count="800">800</b><span>Personenstunden</span></div>
+        <div class="stat" role="listitem"><b data-count="7">7</b><span>Meilensteine</span></div>
       </div>
     </div>
-    <figure class="chamber-card fade-up d2" aria-label="Interaktives 3D-Modell der Synq.-Kammer">
-      <div class="chamber-top"><span class="live">Modul-Ansicht</span><span id="chamberState">aufgebaut</span></div>
-      <div class="stage" id="stage">
-        <div class="scene" id="scene">
-          <div class="shadow"></div>
-          <div class="face floor" style="--i:0">Boden</div>
-          <div class="face back" style="--i:1">Wand B</div>
-          <div class="face left" style="--i:2">Wand L</div>
-          <div class="face right" style="--i:3">Wand R</div>
-          <div class="face front" style="--i:4"><span class="door"></span>Front</div>
-          <div class="face roof" style="--i:5">Decke</div>
-        </div>
-      </div>
-      <div class="chamber-controls" role="group" aria-label="Zustand der Kammer">
-        <button type="button" data-state="built" aria-pressed="true">Aufgebaut</button>
-        <button type="button" data-state="exploded" aria-pressed="false">Zerlegt</button>
-        <button type="button" data-state="stored" aria-pressed="false">Verstaut</button>
-      </div>
-      <figcaption class="chamber-caption" id="chamberCaption">Ziehen zum Drehen · schematische Darstellung</figcaption>
-    </figure>
+    <div class="emblem" id="emblem" aria-hidden="true">
+      <svg id="emblemSvg" viewBox="-110 -215 220 370">
+        <g class="bars" id="barsTop"></g>
+        <g transform="translate(-50 -55)">
+          <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path class="hexline" d="M50 6 92 30v50L50 104 8 80V30Z" stroke-width="6.5"/>
+            <path class="hexline" d="M15 34l15 8M85 34l-15 8" stroke-width="6.5"/>
+            <g class="micline" stroke-width="5">
+              <rect x="40" y="29" width="20" height="37" rx="10"/>
+              <path d="M31 50v4a19 19 0 0 0 38 0v-4M50 73v27"/>
+            </g>
+            <g class="grille" stroke-width="3.6" id="grille">
+              <line x1="40" y1="41" x2="46" y2="41"/><line x1="54" y1="41" x2="60" y2="41"/>
+              <line x1="40" y1="48" x2="46" y2="48"/><line x1="54" y1="48" x2="60" y2="48"/>
+              <line x1="40" y1="55" x2="46" y2="55"/><line x1="54" y1="55" x2="60" y2="55"/>
+            </g>
+          </g>
+          <circle cx="76" cy="47" r="4.2" style="fill:var(--accent-1)" id="emblemDot"/>
+        </g>
+        <g class="bars" id="barsBot"></g>
+      </svg>
+      <div class="emblem-hint"><span id="emblemHint">Mikro aus</span><span class="meter"><span id="micMeter"></span></span></div>
+    </div>
   </div>
-  <div class="scroll-cue" aria-hidden="true">Scroll</div>
+  <a class="scroll-cue" href="#idee" aria-label="Nach unten scrollen"></a>
+</section>
+
+<!-- ===================== Laufband ===================== -->
+<div class="marquee" aria-label="Themenbereiche">
+  <div class="marquee-track" id="marquee"></div>
 </div>
 
-<div class="marquee" aria-hidden="true"><div class="marquee-track">
-  <span>Konstruktion</span><span>Akustik &amp; Schallschutz</span><span>Audiointegration</span><span>Cubase-Template</span><span>Elektrotechnik</span><span>Sensorik</span><span>Netzwerk &amp; Server</span><span>3D-Modellierung</span><span>VR / AR</span><span>Marketing</span>
-  <span>Konstruktion</span><span>Akustik &amp; Schallschutz</span><span>Audiointegration</span><span>Cubase-Template</span><span>Elektrotechnik</span><span>Sensorik</span><span>Netzwerk &amp; Server</span><span>3D-Modellierung</span><span>VR / AR</span><span>Marketing</span>
-</div></div>
-
-<!-- ===================== 1 IDEE ===================== -->
-<section id="idee"><div class="wrap">
-  <div class="section-head" data-reveal><span class="num">01 — PROJEKTIDEE</span><h2>Ein Studio, das <span class="grad">verschwindet</span>, wenn man es nicht braucht.</h2></div>
-  <div class="grid-2">
-    <div class="card" data-reveal><span class="kicker">1.1 Ausgangssituation</span><h3>Ausgangssituation</h3><p>Der Bedarf an getrennten und störungsarmen Audioaufnahmen ist insbesondere bei Schulprojekten, Maturaprüfungen, Podcasts und Voice-over-Aufgaben gegeben. Gleichzeitig stehen nicht für jede Aufgabe dauerhaft eigene Aufnahmeräume zur Verfügung. Eine permanent aufgebaute Studiokammer benötigt Platz und kann den Schulbetrieb einschränken. Daraus entstand die Idee einer Studiokammer, die bei Bedarf schnell aufgebaut, verwendet und anschließend wieder zerlegt und platzsparend verstaut werden kann.</p><p>Ein besonderer Anwendungsfall ist die Matura im Bereich Medientechnik: Mehrere Schülerinnen und Schüler sollen Audioaufgaben möglichst unabhängig voneinander bearbeiten können. Die Kammer soll dabei Umgebungsgeräusche innerhalb der Aufnahme reduzieren und gleichzeitig verhindern, dass Personen außerhalb durch die Aufnahmen unnötig gestört werden.</p></div>
-    <div class="card" data-reveal style="--d:1"><span class="kicker">1.2 Beschreibung der Idee</span><h3>Beschreibung der Idee</h3><p>„Synq.“ ist eine modular konstruierte Studiokammer, deren Bauteile für einen wiederholten Auf- und Abbau ausgelegt sind. Im Mittelpunkt steht deshalb nicht der Transport als kompakte Kofferlösung, sondern die Lagerung: Die Kammer kann nach dem Einsatz in einzelne Module zerlegt, geordnet und platzsparend gelagert werden. Verbindungstechnik und Bauteilkennzeichnung werden auf eine einfache und nutzerfreundliche Montage und Demontage ausgerichtet.</p><p>Neben der mechanischen und akustischen Umsetzung werden Stromversorgung, Beleuchtung, Lüftung, Sensorik und Audio-Interface integriert. Ergänzend wird ein Cubase-Aufnahmetemplate erstellt, das die ermittelten akustischen Eigenschaften berücksichtigt und passende Einstellungen für Bass-, Höhen- und Absorber Kompensation vorsieht. 3D-Modelle und eine VR-/Walkthrough-Darstellung unterstützen Planung und Auswahl der Ausführungsvariante.</p></div>
-  </div>
-
-  <div class="card db-card" data-reveal>
-    <div>
-      <span class="kicker">Akustikziel · Ziel-H 2b</span>
-      <div class="db-big">−<span data-count="20">20</span> dB<small>mindestens angestrebte Schalldruckpegelreduktion in der schulischen Vergleichsmessung</small></div>
+<!-- ===================== 01 Projektidee ===================== -->
+<section id="idee">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">01 — Projektidee</span>
+      <h2>Ein Studio, das <span class="grad">verschwindet</span>, wenn man es nicht braucht.</h2>
     </div>
-    <div class="db-viz"><canvas id="dbViz" aria-hidden="true"></canvas><span class="wall" aria-hidden="true"></span><span class="lbl l">außen</span><span class="lbl r">innen</span></div>
-  </div>
 
-  <div class="zone" data-reveal>Signalweg · Audioaufnahme</div>
-  <div class="flow" data-reveal>
-    <div class="node"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8"/></svg></div><b>Mikrofonierung</b><small>Fokus Sprachaufnahmen</small></div>
-    <div class="wire"></div>
-    <div class="node"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="10" rx="2"/><circle cx="7" cy="12" r="2"/><circle cx="13" cy="12" r="2"/><path d="M18 10v4"/></svg></div><b>Audio-Interface</b><small>inkl. Kabelmanagement</small></div>
-    <div class="wire"></div>
-    <div class="node hl"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 21V14M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></div><b>Cubase-Aufnahmetemplate</b><small>Bass-, Höhen- und Absorber Kompensation</small></div>
-    <div class="wire"></div>
-    <div class="node dashed"><span class="tag-opt">optional · O5</span><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></div><b>Schulinterner Sync-Server</b><small>automatisierte Übertragung</small></div>
-  </div>
-
-  <div class="zone" data-reveal>Integrierte Technik</div>
-  <div class="chips" data-reveal><span class="chip">Stromversorgung</span><span class="chip">Beleuchtung</span><span class="chip">Lüftung</span><span class="chip">Sensorik</span><span class="chip">Audio-Interface</span><span class="chip">3D-Modelle</span><span class="chip">VR-/Walkthrough-Darstellung</span></div>
-</div></section>
-
-<!-- ===================== 2 ZIELE ===================== -->
-<section id="ziele" class="alt"><div class="wrap">
-  <div class="section-head" data-reveal><span class="num">02 — PROJEKTZIELE</span><h2>Was <span class="grad">Synq.</span> erreichen soll – und was nicht.</h2><p>Sieben Hauptziele, sechs optionale Ziele und fünf klar abgegrenzte NICHT-Ziele. Karten antippen, um die Teilziele aufzuklappen.</p></div>
-  <div class="tab-tools" data-reveal>
-    <div class="tabs" role="tablist" aria-label="Zielkategorien">
-      <span class="tab-pill" aria-hidden="true"></span>
-      <button class="tab" role="tab" id="t-h" aria-controls="p-h" aria-selected="true" data-kind="">Hauptziele <span class="cnt">7</span></button>
-      <button class="tab" role="tab" id="t-o" aria-controls="p-o" aria-selected="false" tabindex="-1" data-kind="opt">Optionale Ziele <span class="cnt">6</span></button>
-      <button class="tab" role="tab" id="t-n" aria-controls="p-n" aria-selected="false" tabindex="-1" data-kind="non">NICHT-Ziele <span class="cnt">5</span></button>
+    <div class="grid-2 idea-text">
+      <article class="card spot" data-reveal>
+        <span class="k">1.1 Ausgangssituation</span>
+        <p>Der Bedarf an getrennten und störungsarmen Audioaufnahmen ist insbesondere bei Schulprojekten, Maturaprüfungen, Podcasts und Voice-over-Aufgaben gegeben. Gleichzeitig stehen nicht für jede Aufgabe dauerhaft eigene Aufnahmeräume zur Verfügung. Eine permanent aufgebaute Studiokammer benötigt Platz und kann den Schulbetrieb einschränken. Daraus entstand die Idee einer Studiokammer, die bei Bedarf schnell aufgebaut, verwendet und anschließend wieder zerlegt und platzsparend verstaut werden kann.</p>
+        <p>Ein besonderer Anwendungsfall ist die <strong>Matura im Bereich Medientechnik</strong>: Mehrere Schülerinnen und Schüler sollen Audioaufgaben möglichst unabhängig voneinander bearbeiten können. Die Kammer soll dabei Umgebungsgeräusche innerhalb der Aufnahme reduzieren und gleichzeitig verhindern, dass Personen außerhalb durch die Aufnahmen unnötig gestört werden.</p>
+      </article>
+      <article class="card spot" data-reveal style="--d:1">
+        <span class="k">1.2 Beschreibung der Idee</span>
+        <p>„Synq.“ ist eine modular konstruierte Studiokammer, deren Bauteile für einen wiederholten Auf- und Abbau ausgelegt sind. Im Mittelpunkt steht deshalb nicht der Transport als kompakte Kofferlösung, sondern <strong>die Lagerung</strong>: Die Kammer kann nach dem Einsatz in einzelne Module zerlegt, geordnet und platzsparend gelagert werden. Verbindungstechnik und Bauteilkennzeichnung werden auf eine einfache und nutzerfreundliche Montage und Demontage ausgerichtet.</p>
+        <p>Neben der mechanischen und akustischen Umsetzung werden Stromversorgung, Beleuchtung, Lüftung, Sensorik und Audio-Interface integriert. Ergänzend wird ein Cubase-Aufnahmetemplate erstellt, das die ermittelten akustischen Eigenschaften berücksichtigt und passende Einstellungen für Bass-, Höhen- und Absorber-Kompensation vorsieht. 3D-Modelle und eine VR-/Walkthrough-Darstellung unterstützen Planung und Auswahl der Ausführungsvariante.</p>
+      </article>
     </div>
-    <button class="toggle-all" type="button" data-open="false">Alle aufklappen</button>
-  </div>
-  <div class="panel show" id="p-h" role="tabpanel" aria-labelledby="t-h"><div class="goals"><details class="goal " style="--d:0" open><summary><div class="gh"><span class="id">H1</span><div><h3>Ziel-H 1: Konstruktion und platzsparende Lagerung</h3><div class="meta">6 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Die „Synq.“-Kammer ist vollständig aufgebaut und so ausgeführt, dass sie wiederholt, schnell und mit geringem Aufwand montiert, demontiert und anschließend platzsparend gelagert werden kann.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Die Anforderungen an Abmessungen, Aufbau, Materialien, Nutzung und Lagerung der „Synq.“-Kammer sind festgelegt.</span></li><li><b>b)</b><span>Ein grundlegendes Konstruktionskonzept für Rahmen, Boden, Wände und Decke ist entwickelt.</span></li><li><b>c)</b><span>Eine geeignete Verbindungstechnik für den wiederholten Auf- und Abbau der Module ist ausgewählt und konstruktiv umgesetzt.</span></li><li><b>d)</b><span>Die Grundkonstruktion aus Rahmen, Boden, Wänden und Decke ist vollständig gefertigt und montiert.</span></li><li><b>e)</b><span>Ein vollständiger Montage- und Demontagezyklus wird durchgeführt und dokumentiert, um Funktion und Passgenauigkeit nach der erneuten Montage zu überprüfen.</span></li><li><b>f)</b><span>Die zerlegten Module sind eindeutig gekennzeichnet und so organisiert, dass sie geordnet und platzsparend gelagert werden können.</span></li></ul></div></details><details class="goal " style="--d:1"><summary><div class="gh"><span class="id">H2</span><div><h3>Ziel-H 2: Akustik und Schallschutz</h3><div class="meta">4 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Die „Synq.“-Kammer reduziert störende Umgebungsgeräusche und schafft eine geeignete akustische Umgebung für Sprach- und Audioaufnahmen.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Schalldämmende Materialien und geeignete akustische Bauteile werden ausgewählt und integriert, um die Schallübertragung sowohl von außen nach innen als auch von innen nach außen zu reduzieren.</span></li><li><b>b)</b><span>Eine schulische Vergleichsmessung weist unter definierten Messbedingungen eine Schalldruckpegelreduktion von mindestens 20 dB nach. Dieser Wert wird als projektspezifischer Zielwert für eine deutlich wahrnehmbare Reduktion störender Umgebungsgeräusche festgelegt.</span></li><li><b>c)</b><span>Absorber und der vorgesehene Mikrofonbereich sind so angeordnet, dass störende Schallreflexionen bei Aufnahmen reduziert werden.</span></li><li><b>d)</b><span>Die für die Audioaufnahme relevanten akustischen Messergebnisse sind dokumentiert und stehen für die weitere Audio-Konfiguration zur Verfügung.</span></li></ul></div></details><details class="goal " style="--d:2"><summary><div class="gh"><span class="id">H3</span><div><h3>Ziel-H 3: 3D-Modellierung, Baupläne und VR-Walkthrough</h3><div class="meta">3 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Für die „Synq.“-Kammer liegt eine vollständig ausgearbeitete digitale Variante vor, die zur Visualisierung und technischen Darstellung des Projekts dient.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Das Kammerkonzept ist digital ausgearbeitet und in einer geeigneten 3D-Software modelliert.</span></li><li><b>b)</b><span>Maßstabsgerechte Baupläne mit Draufsicht, Schnitt- und Explosionsdarstellung sind erstellt.</span></li><li><b>c)</b><span>Das Kammerkonzept ist in einer VR-/Walkthrough-Umgebung dargestellt und kann virtuell betrachtet werden.</span></li></ul></div></details><details class="goal " style="--d:3"><summary><div class="gh"><span class="id">H4</span><div><h3>Ziel-H 4: Audioaufnahme und Cubase-Template</h3><div class="meta">5 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Der Audioaufnahme-Workflow der „Synq.“-Kammer ist funktionsfähig und durch ein auf die Raumakustik abgestimmtes Cubase-Template unterstützt.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Mikrofonierung, Audio-Interface und Kabelmanagement sind für den vorgesehenen Aufnahmebetrieb mit Fokus auf Sprachaufnahmen eingerichtet.</span></li><li><b>b)</b><span>Geeignete Produktionstemplates für vorgesehene Aufnahmebetriebe sind eingerichtet.</span></li><li><b>c)</b><span>Ein Cubase-Aufnahmetemplate ist erstellt und auf die gemessenen akustischen Eigenschaften der Kammer abgestimmt.</span></li><li><b>d)</b><span>Das Template berücksichtigt die erforderliche Kompensation im Bass- und Höhenbereich sowie den Einfluss der eingesetzten Absorber.</span></li><li><b>e)</b><span>Mehrere Testaufnahmen werden mit dem definierten Workflow durchgeführt und die Ergebnisse dokumentiert.</span></li></ul></div></details><details class="goal " style="--d:4"><summary><div class="gh"><span class="id">H5</span><div><h3>Ziel-H 5: Elektrische Installation und Sensorik</h3><div class="meta">5 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Die elektrische Ausstattung der „Synq.“-Kammer ist betriebsbereit, dokumentiert und technisch geprüft. Für die vorgesehenen Steuerungs- und Überwachungsfunktionen erforderliche Sensorik ist integriert und getestet.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Die 230-V-Stromversorgung wird unter Unterstützung einer Lehrkraft aus dem Bereich Elektrotechnik geplant und umgesetzt und anschließend fachgerecht überprüft.</span></li><li><b>b)</b><span>Beleuchtung und Lüftung sind integriert und auf ihre Funktionen geprüft.</span></li><li><b>c)</b><span>Für die vorgesehenen Steuerungs- und Überwachungsfunktionen erforderliche Sensoren sind ausgewählt, integriert und getestet.</span></li><li><b>d)</b><span>Die Steuerlogik für die vorgesehenen automatisierten Funktionen ist umgesetzt und dokumentiert.</span></li><li><b>e)</b><span>Ein vollständiger Schaltplan ist erstellt und die elektrische Installation ist durch eine zuständige Lehrkraft überprüft.</span></li></ul></div></details><details class="goal " style="--d:5"><summary><div class="gh"><span class="id">H6</span><div><h3>Ziel-H 6: Technische Gesamtdokumentation</h3><div class="meta">4 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Die vollständige technische Dokumentation der „Synq.“-Kammer liegt als strukturierte PDF-Dokumentation vor und ermöglicht einen nachvollziehbaren Auf- und Abbau sowie den technischen Betrieb des Projektergebnisses.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Eine Bauanleitung mit Stückliste sowie einer Beschreibung für Montage, Demontage und Lagerung liegt vor.</span></li><li><b>b)</b><span>Schaltpläne, Netzwerkaufbau und wesentliche Systemeinstellungen sind dokumentiert.</span></li><li><b>c)</b><span>Ergebnisse der Akustikmessungen, Variantenbewertung und Funktionstests sind strukturiert zusammengefasst.</span></li><li><b>d)</b><span>Die Gesamtdokumentation wurde zusammen mit den Betreuern geprüft und als vollständige PDF-Dokumentation finalisiert.</span></li></ul></div></details><details class="goal " style="--d:6"><summary><div class="gh"><span class="id">H7</span><div><h3>Ziel-H 7: Marketing, Social Media und Sponsorensuche</h3><div class="meta">7 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Die Entwicklung und das Ergebnis der „Synq.“-Kammer werden dokumentiert und über geeignete schulische und digitale Kanäle präsentiert. Zusätzlich werden bei Bedarf Sponsoren und Kooperationspartner für die Umsetzung des Projekts gesucht.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Ein einheitliches Erscheinungsbild für „Synq.“ mit Logo, Farben und grundlegenden Gestaltungsvorgaben ist erstellt.</span></li><li><b>b)</b><span>Die Entwicklung und der Baufortschritt der „Synq.“-Kammer sind fotografisch und/oder videobasiert dokumentiert.</span></li><li><b>c)</b><span>Geeignete Social-Media-Kanäle sind ausgewählt und für die Präsentation des Projekts genutzt.</span></li><li><b>d)</b><span>Inhalte zu Projektfortschritt, Konstruktion, technischen Funktionen und dem fertigen Projektergebnis sind erstellt und veröffentlicht.</span></li><li><b>e)</b><span>Potenzielle Sponsoren und Kooperationspartner sind recherchiert und strukturiert erfasst.</span></li><li><b>f)</b><span>Potenzielle Sponsoren und Kooperationspartner sind kontaktiert und die Ergebnisse der Kontaktaufnahme dokumentiert.</span></li><li><b>g)</b><span>Sponsoringkontakte sowie erhaltene Sach- oder Geldleistungen sind dokumentiert und in die Projektdokumentation aufgenommen.</span></li></ul></div></details></div></div>
-  <div class="panel" id="p-o" role="tabpanel" aria-labelledby="t-o" hidden><div class="goals"><details class="goal opt" style="--d:0"><summary><div class="gh"><span class="id">O1</span><div><h3>Ziel-O 1: Virtuelle Raumdarstellung</h3><div class="meta">1 Teilziel</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Das 3D-Modell der „Synq.“-Kammer ist zur Visualisierung in unterschiedlichen Raumumgebungen eingesetzt.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Das 3D-Modell wird in mindestens zwei unterschiedlichen Raumumgebungen dargestellt und dokumentiert.</span></li></ul></div></details><details class="goal opt" style="--d:1"><summary><div class="gh"><span class="id">O2</span><div><h3>Ziel-O 2: Touchpanel-Steuerung</h3><div class="meta">3 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Ausgewählte Funktionen der „Synq.“-Kammer sind über ein zentrales Touchpanel bedienbar gemacht.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Eine grafische Benutzeroberfläche für die Kammersteuerung ist entwickelt.</span></li><li><b>b)</b><span>Beleuchtung und Lüftung können über das Touchpanel geschaltet werden.</span></li><li><b>c)</b><span>Die Aufnahmefunktionen können über das Touchpanel zentral gestartet und gesteuert werden.</span></li></ul></div></details><details class="goal opt" style="--d:2"><summary><div class="gh"><span class="id">O3</span><div><h3>Ziel-O 3: Automatisches Backup und Online-Monitoring</h3><div class="meta">3 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Die Aufnahmen der „Synq.“-Kammer sind zusätzlich auf einem Backup-System gesichert und der Betriebsstatus wichtiger technischer Komponenten ist über eine Web-Oberfläche dargestellt.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Ein automatisierter Backup-Prozess erkennt neue Aufnahmen und kopiert diese auf das Backup-System.</span></li><li><b>b)</b><span>Die Integrität der gesicherten Aufnahmen wird überprüft.</span></li><li><b>c)</b><span>Ein webbasiertes Monitoring zeigt relevante Statusinformationen wie Speicher-, Netzwerk- und Systemstatus an und wird im Schulnetzwerk getestet.</span></li></ul></div></details><details class="goal opt" style="--d:3"><summary><div class="gh"><span class="id">O4</span><div><h3>Ziel-O 4: Kommunikations- und Monitoringschnittstelle</h3><div class="meta">3 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Für die „Synq.“-Kammer ist eine technische Schnittstelle zur Kommunikation und Überwachung zwischen Innen- und Außenbereich entwickelt und umgesetzt.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Eine Kamera- und Audioverbindung ermöglicht die visuelle und akustische Kommunikation zwischen Personen innerhalb und außerhalb der Kammer.</span></li><li><b>b)</b><span>Möglichkeiten zur Anbindung an bestehende Aufnahme- und Produktionsumgebungen (z. B. Audiolabor) werden untersucht, dokumentiert und prototypisch getestet.</span></li><li><b>c)</b><span>Ein Praxistest mit mindestens zwei Personen (eine Person in der Kammer, eine Person außerhalb) wurde erfolgreich durchgeführt und dokumentiert.</span></li></ul></div></details><details class="goal opt" style="--d:4"><summary><div class="gh"><span class="id">O5</span><div><h3>Ziel-O 5: Schulinterner Sync-Server und Audioübertragung</h3><div class="meta">6 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Die Audioaufnahmen der „Synq.“-Kammer werden automatisiert, sicher und strukturiert über das schulinterne Netzwerk an einen zentralen Server übertragen und dort gespeichert.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Die Anforderungen an Audioübertragung, Netzwerkverbindung und benötigten Speicherplatz sind ermittelt.</span></li><li><b>b)</b><span>Eine geeignete Netzwerk- und Übertragungstechnologie ist ausgewählt und eingerichtet.</span></li><li><b>c)</b><span>Neue Audioaufnahmen werden automatisiert vom Aufnahmegerät auf den zentralen Server übertragen.</span></li><li><b>d)</b><span>Zielsystem, Speicherstruktur sowie Benutzer- und Rechteverwaltung sind eingerichtet.</span></li><li><b>e)</b><span>Fehlerbehandlung, Protokollierung und Absicherung der Datenübertragung sind umgesetzt.</span></li><li><b>f)</b><span>Funktions-, Belastungs- und Ausfalltests sind durchgeführt und dokumentiert.</span></li></ul></div></details><details class="goal opt" style="--d:5"><summary><div class="gh"><span class="id">O6</span><div><h3>Ziel-O 6: Konzeptvarianten</h3><div class="meta">6 Teilziele</div></div><span class="chev" aria-hidden="true"></span></div><p class="desc">Für die „Synq.“-Kammer werden mehrere alternative Konstruktionskonzepte entwickelt, visualisiert und miteinander verglichen, um die finale Bauversion gezielt auszuwählen und zu optimieren.</p></summary><div class="body"><ul class="subs"><li><b>a)</b><span>Bis zu drei unterschiedliche Kammerkonzepte sind hinsichtlich Aufbaus, Lagerung, Platzbedarf und Umsetzbarkeit ausgearbeitet.</span></li><li><b>b)</b><span>Die Konzepte sind in einer geeigneten 3D-Software modelliert und für eine anschauliche Präsentation aufbereitet.</span></li><li><b>c)</b><span>Die Varianten sind Schülerinnen und Schülern des Schwerpunktes Multimedia vorgestellt und hinsichtlich Funktionalität, Design und Praxistauglichkeit bewertet.</span></li><li><b>d)</b><span>Die Ergebnisse der Bewertung sind strukturiert erfasst und dokumentiert.</span></li><li><b>e)</b><span>Vor- und Nachteile der einzelnen Varianten sind gegenübergestellt und analysiert.</span></li><li><b>f)</b><span>Die Erkenntnisse aus dem Variantenvergleich sind für die Optimierung der finalen Bauversion herangezogen und dokumentiert.</span></li></ul></div></details></div></div>
-  <div class="panel" id="p-n" role="tabpanel" aria-labelledby="t-n" hidden><div class="goals"><article class="goal non" style="--d:0"><div class="summary" style="padding:24px"><div class="gh"><span class="id">N1</span><div><h3>Ziel-N 1: Professionelle zertifizierte Schallmessung</h3><div class="meta">ausgeschlossen</div></div></div><p class="desc">Die akustische Bewertung der „Synq.“-Kammer erfolgt durch eine professionelle bzw. zertifizierte Schallmessung durch ein externes Fachunternehmen.</p></div></article><article class="goal non" style="--d:1"><div class="summary" style="padding:24px"><div class="gh"><span class="id">N2</span><div><h3>Ziel-N 2: Vollständiges Regiestudio</h3><div class="meta">ausgeschlossen</div></div></div><p class="desc">Ein vollständig ausgestattetes Regiestudio mit professionellem Schnitt-PC, Regiepult und Multi-Kamera-Regie wird realisiert.</p></div></article><article class="goal non" style="--d:2"><div class="summary" style="padding:24px"><div class="gh"><span class="id">N3</span><div><h3>Ziel-N 3: Externe Cloud-Infrastruktur</h3><div class="meta">ausgeschlossen</div></div></div><p class="desc">Die Datenverarbeitung und Speicherung erfolgt über externe Cloud-Dienste wie AWS, Azure oder externe Streaming-Plattformen.</p></div></article><article class="goal non" style="--d:3"><div class="summary" style="padding:24px"><div class="gh"><span class="id">N4</span><div><h3>Ziel-N 4: Dauerhafte Installation</h3><div class="meta">ausgeschlossen</div></div></div><p class="desc">Die „Synq.“-Kammer wird als fixe, dauerhaft installierte Konstruktion ausgeführt.</p></div></article><article class="goal non" style="--d:4"><div class="summary" style="padding:24px"><div class="gh"><span class="id">N5</span><div><h3>Ziel-N 5: Kommerzielle Serienproduktion</h3><div class="meta">ausgeschlossen</div></div></div><p class="desc">Die „Synq.“-Kammer wird als kommerziell produzierbares System entwickelt und für eine mögliche Serienproduktion ausgelegt.</p></div></article></div></div>
 
-  <h3 class="sub-h" data-reveal>Individuelle Aufgabenstellungen der Teammitglieder im Projekt</h3>
-  <div class="team-grid"><article class="member" style="--g:linear-gradient(135deg,#ff5a36,#ffb347);--d:0" data-reveal><div class="mtop"><div class="avatar" aria-hidden="true">KZ</div><div><h3>Kevin Zheng</h3><div class="role">Projektleiter / Product Owner</div></div><span class="kz">5AX · ZHE</span></div><p><b>Themenschwerpunkt:</b> Projektleitung, 3D-Modellierung, VR/AR und technische Dokumentation. Der Schwerpunkt liegt auf der digitalen Planung, der Auswahl der Bauversion und der strukturierten Gesamtdokumentation.</p><div class="zl">Ziel-H</div><ul class="subs"><li><b>H3</b>3D-Modellierung, Baupläne und VR-Walkthrough</li><li><b>H4e</b>Durchführung und Dokumentation von Testaufnahmen</li><li><b>H6d</b>Prüfung und Finalisierung der Gesamtdokumentation</li></ul><div class="zl">Ziel-O</div><ul class="subs o"><li><b>O1</b>AR-Raumeinpassung</li><li><b>O6</b>Konzeptvarianten</li></ul><p class="auf"><b>Aufgabenstellung:</b> Die zugewiesenen Ziele und Anforderungen werden eigenverantwortlich geplant, umgesetzt, getestet und dokumentiert.</p><a class="mail" href="mailto:kevin.zheng@htl.rennweg.at">kevin.zheng@htl.rennweg.at</a></article><article class="member" style="--g:linear-gradient(135deg,#3fc1c9,#7be0a8);--d:1" data-reveal><div class="mtop"><div class="avatar" aria-hidden="true">NS</div><div><h3>Naila Subasic</h3><div class="role">Stellv. Projektleiterin / Scrum Master</div></div><span class="kz">5AX · SUB</span></div><p><b>Themenschwerpunkt:</b> Konstruktion, Akustik, Elektrotechnik und Marketing. Der Schwerpunkt liegt auf der Planung und dem Aufbau der Kammer, der akustischen Ausführung, der technischen Umsetzung sowie der Präsentation des Projekts und der Suche nach Sponsoren und Kooperationspartnern.</p><div class="zl">Ziel-H</div><ul class="subs"><li><b>H1a</b>Festlegung der Anforderungen an die „Synq.“-Kammer</li><li><b>H1b</b>Entwicklung des grundlegenden Konstruktionskonzepts</li><li><b>H1c</b>Auswahl und Umsetzung der Verbindungstechnik</li><li><b>H1d</b>Konstruktion und platzsparende Lagerung</li><li><b>H6a</b>Technische Gesamtdokumentation</li><li><b>H7</b>Marketing, Social Media und Sponsorensuche</li></ul><p class="auf"><b>Aufgabenstellung:</b> Die zugewiesenen Ziele und Anforderungen werden eigenverantwortlich geplant, umgesetzt, getestet und dokumentiert.</p><a class="mail" href="mailto:naila.subasic@htl.rennweg.at">naila.subasic@htl.rennweg.at</a></article><article class="member" style="--g:linear-gradient(135deg,#a78bfa,#f472b6);--d:2" data-reveal><div class="mtop"><div class="avatar" aria-hidden="true">AZ</div><div><h3>Angelika Zimmermann</h3><div class="role">Projektmitarbeiterin</div></div><span class="kz">5AX · ZIM</span></div><p><b>Themenschwerpunkt:</b> Akustik, Innenausbau, Audiointegration und Benutzeroberfläche. Der Schwerpunkt liegt auf der akustischen Arbeitsumgebung, den Audio-Komponenten und der nutzerfreundlichen Bedienung.</p><div class="zl">Ziel-H</div><ul class="subs"><li><b>H4b</b>Einrichtung der Produktionstemplates</li><li><b>H4c</b>Erstellung des Cubase-Aufnahmetemplates</li><li><b>H4d</b>Akustische Anpassung des Templates</li><li><b>H5</b>Elektrische Installation und Sensorik</li><li><b>H6c</b>Zusammenfassung der Messergebnisse und Tests</li></ul><div class="zl">Ziel-O</div><ul class="subs o"><li><b>O2</b>Touchpanel-Steuerung</li></ul><p class="auf"><b>Aufgabenstellung:</b> Die zugewiesenen Ziele und Anforderungen werden eigenverantwortlich geplant, umgesetzt, getestet und dokumentiert.</p><a class="mail" href="mailto:angelika.zimmermann@htl.rennweg.at">angelika.zimmermann@htl.rennweg.at</a></article><article class="member" style="--g:linear-gradient(135deg,#60a5fa,#3fc1c9);--d:3" data-reveal><div class="mtop"><div class="avatar" aria-hidden="true">MP</div><div><h3>Maximilian Popek</h3><div class="role">Projektmitarbeiter</div></div><span class="kz">5AX · POP</span></div><p><b>Themenschwerpunkt:</b> Server, Netzwerk und Infrastruktur. Der Schwerpunkt liegt auf der zuverlässigen und sicheren Übertragung, Speicherung und Absicherung der Audioaufnahmen sowie auf automatisierten Infrastruktur-Diensten.</p><div class="zl">Ziel-H</div><ul class="subs"><li><b>H1e</b>Prüfung von Montage und Demontage</li><li><b>H1f</b>Kennzeichnung und Lagerung der Module</li><li><b>H2</b>Akustik und Schallschutz</li><li><b>H4a</b>Einrichtung der Aufnahmetechnik</li><li><b>H6b</b>Dokumentation der technischen Infrastruktur</li></ul><div class="zl">Ziel-O</div><ul class="subs o"><li><b>O3</b>Automatisches Backup und Online-Monitoring</li><li><b>O4</b>Kommunikations- und Monitoringschnittstelle</li><li><b>O5</b>Schulinterner Sync-Server und Audioübertragung</li></ul><p class="auf"><b>Aufgabenstellung:</b> Die zugewiesenen Ziele und Anforderungen werden eigenverantwortlich geplant, umgesetzt, getestet und dokumentiert.</p><a class="mail" href="mailto:maximilian.popek@htl.rennweg.at">maximilian.popek@htl.rennweg.at</a></article></div>
-</div></section>
-
-<!-- ===================== 3 TEAM ===================== -->
-<section id="team"><div class="wrap">
-  <div class="section-head" data-reveal><span class="num">03 — PROJEKTORGANISATION</span><h2>Projektteam &amp; <span class="grad">Kontakt</span></h2><p>Ein vierköpfiges Scrum-Team der 5AX, begleitet von zwei Betreuern.</p></div>
-  <div class="org">
-    <div class="sup-list">
-      <div class="card sup" data-reveal><div class="avatar" aria-hidden="true">VN</div><div><small>Hauptbetreuung · NUS</small><h3>Vincent Nussbaumer</h3><small>Individuelle Betreuung (Hauptbetreuung)</small></div><div class="who">Kevin Zheng<br>Naila Subasic</div></div>
-      <div class="card sup" data-reveal style="--d:1"><div class="avatar" aria-hidden="true">AF</div><div><small>Hauptbetreuung Stellv. · FIN</small><h3>Andreas Fink</h3><small>Individuelle Betreuung (Hauptbetreuung Stellv.)</small></div><div class="who">Angelika Zimmermann<br>Maximilian Popek</div></div>
+    <!-- 3D-Kammer -->
+    <div class="chamber-wrap">
+      <div class="card chamber-card" data-reveal>
+        <div class="chamber-top">
+          <span>Modul-Ansicht · <span class="state-name" id="stateName">Aufgebaut</span></span>
+          <span class="autoplay-tag" id="autoTag"><i></i><span>Auto</span></span>
+        </div>
+        <div class="stage" id="stage" tabindex="0" role="img" aria-label="Interaktives 3D-Modell der Synq.-Kammer. Mit Maus, Finger oder Pfeiltasten drehen.">
+          <div class="stage-scale" id="stageScale">
+            <div class="cube s-built" id="cube"></div>
+          </div>
+        </div>
+        <div class="state-btns">
+          <div class="seg" id="stateSeg" role="group" aria-label="Zustand der Kammer">
+            <span class="seg-ind" aria-hidden="true"></span>
+            <button type="button" data-state="built" aria-pressed="true">Aufgebaut</button>
+            <button type="button" data-state="exploded" aria-pressed="false">Zerlegt</button>
+            <button type="button" data-state="stowed" aria-pressed="false">Verstaut</button>
+          </div>
+        </div>
+        <p class="chamber-note">Ziehen zum Drehen · Pfeiltasten · Boden, Wände, Front mit Tür und Decke als einzelne Module</p>
+      </div>
+      <div class="hotspots" id="hotspots" data-reveal style="--d:1" aria-label="Was steckt in der Kammer?"></div>
     </div>
-    <div class="table-wrap" data-reveal style="--d:2"><table>
-      <thead><tr><th>Funktion</th><th>Name</th><th>Klasse</th><th>Kürzel</th><th>E-Mail</th></tr></thead>
-      <tbody>
-        <tr><td><span class="pill hi">PL / PO</span></td><td>Kevin Zheng</td><td class="num">5AX</td><td class="num">ZHE</td><td><a href="mailto:kevin.zheng@htl.rennweg.at">kevin.zheng@htl.rennweg.at</a></td></tr>
-        <tr><td><span class="pill hi">PL Stv. / SM</span></td><td>Naila Subasic</td><td class="num">5AX</td><td class="num">SUB</td><td><a href="mailto:naila.subasic@htl.rennweg.at">naila.subasic@htl.rennweg.at</a></td></tr>
-        <tr><td><span class="pill pos">PM</span></td><td>Angelika Zimmermann</td><td class="num">5AX</td><td class="num">ZIM</td><td><a href="mailto:angelika.zimmermann@htl.rennweg.at">angelika.zimmermann@htl.rennweg.at</a></td></tr>
-        <tr><td><span class="pill pos">PM</span></td><td>Maximilian Popek</td><td class="num">5AX</td><td class="num">POP</td><td><a href="mailto:maximilian.popek@htl.rennweg.at">maximilian.popek@htl.rennweg.at</a></td></tr>
-      </tbody>
-    </table></div>
-  </div>
-</div></section>
 
-<!-- ===================== 4 STAKEHOLDER ===================== -->
-<section id="stakeholder" class="alt"><div class="wrap">
-  <div class="section-head" data-reveal><span class="num">04 — STAKEHOLDERANALYSE</span><h2>Stakeholder&shy;analyse</h2></div>
-  <div class="table-wrap" data-reveal><table>
-    <thead><tr><th>Nr. (Ext/Int)</th><th>Bezeichnung des Stakeholders (SH)</th><th>Beschreibung des Einflusses – Wie kann der SH das Projekt ev. unterstützen, wie behindern?</th><th>Einfluss auf Projekt/Macht</th><th>Einstellung zum Projekt</th><th>Maßnahmen</th></tr></thead>
-    <tbody>
-      <tr><td class="num">I-01</td><td><b>Projektteam</b></td><td>Arbeitet aktiv im Projekt und trägt die Umsetzung sowie die Abstimmung der Teilbereiche.</td><td><span class="pill hi">hoch</span></td><td><span class="pill pos">positiv</span></td><td>Klare Verantwortlichkeiten; regelmäßige Abstimmung; gemeinsame Tests.</td></tr>
-      <tr><td class="num">I-02</td><td><b>Projektbetreuung</b></td><td>Prüft die technische Ausrichtung, gibt Feedback und unterstützt bei Planungs- und Umsetzungsproblemen.</td><td><span class="pill hi">hoch</span></td><td><span class="pill pos">positiv</span></td><td>Regelmäßige Reviews; Meilensteinfreigaben; Risiken früh melden.</td></tr>
-      <tr><td class="num">E-01</td><td><b>Sponsoren und Kooperationspartner</b></td><td>Unterstützen das Projekt durch finanzielle Mittel oder Sachleistungen und können dadurch die Umsetzung einzelner Projektbereiche ermöglichen. Die Suche und Kontaktaufnahme kann zusätzlichen organisatorischen Aufwand verursachen.</td><td><span class="pill hi">hoch</span></td><td><span class="pill pos">positiv</span></td><td>Potenzielle Sponsoren frühzeitig recherchieren; Anfragen gezielt versenden; Rückmeldungen und zugesagte Leistungen dokumentieren.</td></tr>
-      <tr><td class="num">E-02</td><td><b>Schüler*innen und Lehrpersonen als Nutzer</b></td><td>Nutzen die Kammer für Audioaufgaben, Schulprojekte und Maturaaufnahmen und geben Feedback zu Bedienung und Störungsfreiheit.</td><td><span class="pill mid">mittel</span></td><td><span class="pill pos">positiv</span></td><td>Frühe Praxistests; Feedback erfassen; Anforderungen vor der Endmontage prüfen.</td></tr>
-    </tbody>
-  </table></div>
-  <h3 class="sub-h" data-reveal>4.1 Stakeholder Portfolio</h3>
-  <div class="portfolio-wrap" data-reveal>
-    <div class="ax-y">Einfluss / Macht →</div>
-    <div class="portfolio">
-      <div class="pf"><b>Zufriedenstellen</b><span class="sh"><code>E-02</code>Nutzergruppen</span></div>
-      <div class="pf hot"><b>Eng managen</b><span class="sh"><code>I-01</code>Projektteam</span><span class="sh"><code>I-02</code>Projektbetreuung</span></div>
-      <div class="pf"><b>Überwachen</b><span class="empty">Keine priorisierten Stakeholder</span></div>
-      <div class="pf"><b>Informieren / auf dem Laufenden halten</b><span class="sh"><code>E-01</code>Sponsoren und Kooperationspartner</span></div>
+    <!-- −20 dB -->
+    <div class="card db-card spot" data-reveal>
+      <div>
+        <span class="k">Ziel-H 2b · Akustik und Schallschutz</span>
+        <div class="db-big grad">−20 dB</div>
+        <h3>Mindestens 20 dB leiser.</h3>
+        <p class="muted" style="margin-top:12px">Eine schulische Vergleichsmessung weist unter definierten Messbedingungen eine Schalldruckpegelreduktion von mindestens 20 dB nach. Dieser Wert wird als projektspezifischer Zielwert für eine deutlich wahrnehmbare Reduktion störender Umgebungsgeräusche festgelegt.</p>
+        <div class="db-controls">
+          <button class="btn small" type="button" id="listenOut" aria-pressed="false">▶ Hörprobe außen</button>
+          <button class="btn small" type="button" id="listenIn" aria-pressed="false">▶ Hörprobe innen</button>
+          <button class="btn small mic-toggle" type="button" aria-pressed="false"><span>🎙 Mikro</span></button>
+        </div>
+        <p class="fine">20 dB entsprechen dem Faktor 10 in der Schalldruck-Amplitude (20 · log₁₀ 10 = 20 dB). Hörprobe und Mikro-Pegel sind eine Simulation im Browser, keine Messung.</p>
+      </div>
+      <div class="db-canvas-wrap">
+        <div class="db-labels"><span>außen · 0 dB</span><span>innen · −20 dB</span></div>
+        <canvas id="dbCanvas" aria-label="Animierte Welle: außen große Amplitude, hinter der Wand innen zehnmal kleinere Amplitude" role="img"></canvas>
+        <div class="db-readout"><span>Quelle: <b id="dbSrc">Simulation</b></span><span>außen <b id="dbOut">0.0</b> dB · innen <b id="dbIn">−20.0</b> dB</span></div>
+      </div>
     </div>
-    <div class="ax-x">Interesse / Betroffenheit →</div>
-  </div>
-</div></section>
 
-<!-- ===================== 5 PSP ===================== -->
-<section id="psp"><div class="wrap">
-  <div class="section-head" data-reveal><span class="num">05 — OBJEKTSTRUKTURPLAN / BETRACHTUNGSOBJEKTEPLAN</span><h2>Projekt&shy;struktur&shy;plan</h2><p>Der Projektstrukturplan gliedert die Umsetzung in die Arbeitspakete Planung, Konstruktion und Akustik, Audio und Elektrotechnik, Server und Netzwerk, digitale Visualisierung, Tests und Abnahme sowie Dokumentation und Präsentation.</p></div>
-  <div class="psp">
-    <div class="psp-root" data-reveal>Synq<span style="color:var(--accent)">.</span></div>
-    <div class="psp-cols"><div class="psp-col" data-reveal style="--d:0"><div class="psp-head"><span><code>1.1</code>Projektmanagement &amp; Administration</span></div><ol><li><code>1.1.1</code>Diplomarbeitsantrag</li><li><code>1.1.2</code>Product Backlog</li><li><code>1.1.3</code>Projektwebsite</li><li class="ms">Projektmanagement-Setup abgeschlossen</li></ol></div><div class="psp-col" data-reveal style="--d:1"><div class="psp-head"><span><code>1.2</code>Design &amp; Visualisierung</span></div><ol><li><code>1.2.1</code>Konzeptskizzen</li><li><code>1.2.2</code>Maßstabgerechte Baupläne (PDF)</li><li><code>1.2.3</code>Digitale 3D-Modelle</li><li><code>1.2.4</code>VR-Walkthrough Umgebung</li><li class="ms">Design-Freeze &amp; VR-Ready</li></ol></div><div class="psp-col" data-reveal style="--d:2"><div class="psp-head"><span><code>1.3</code>Hardware &amp; Physische Kammer</span></div><ol><li><code>1.3.1</code>Grundkonstruktion (Rahmen &amp; Wände)</li><li><code>1.3.2</code>Akustik-Dämmsystem</li><li><code>1.3.3</code>Elektrische Installation</li><li><code>1.3.4</code>Innenausstattung &amp; Möbel</li><li><code>1.3.5</code>Sensorik- &amp; Lüfter-Hardware</li><li class="ms">Physische Kammer betriebsbereit</li></ol></div><div class="psp-col" data-reveal style="--d:3"><div class="psp-head"><span><code>1.4</code>Marketing</span></div><ol><li><code>1.4.1</code>Corporate Design</li><li><code>1.4.2</code>Social Media</li><li><code>1.4.3</code>Sponsoringrecherche</li><li><code>1.4.4</code>Sponsoringkonzept</li><li><code>1.4.5</code>Sponsoren Kontaktaufnahme</li><li><code>1.4.6</code>Sponsorenübersicht</li><li class="ms">IT-Systeme synchronisiert</li></ol></div><div class="psp-col" data-reveal style="--d:4"><div class="psp-head"><span><code>1.5</code>Projektabschluss &amp; Dokumentation</span></div><ol><li><code>1.5.1</code>Vollständige Bauanleitung &amp; Stückliste</li><li><code>1.5.2</code>Schaltpläne &amp; Netzwerkdokumentation</li><li><code>1.5.3</code>VR-Bewertungsbericht</li><li><code>1.5.4</code>Schallmess-Protokoll</li><li class="ms">Projekt final abgenommen</li></ol></div></div>
-  </div>
-  <div class="psp-legend"><span><i></i>Arbeitspaket</span><span><i class="ms"></i>Meilenstein</span></div>
-</div></section>
-
-<!-- ===================== 6 RISIKEN ===================== -->
-<section id="risiken" class="alt"><div class="wrap">
-  <div class="section-head" data-reveal><span class="num">06 — RISIKOANALYSE</span><h2>Risiken im <span class="grad">Blick</span></h2><p>Punkt in der Matrix oder Zeile in der Tabelle wählen, um die Details zu sehen.</p></div>
-  <div class="risk-grid">
-    <div class="card matrix-card" data-reveal>
-      <svg id="riskMatrix" viewBox="0 0 520 420" role="img" aria-label="Risikomatrix: Einordnung der Risiken 1 bis 7 nach Eintrittswahrscheinlichkeit und Schadensausmaß"></svg>
-    </div>
-    <div class="card risk-detail" id="riskDetail" data-reveal style="--d:1" aria-live="polite"></div>
-  </div>
-  <h3 class="sub-h" data-reveal>6.1 Risikotabelle</h3>
-  <div class="table-wrap" data-reveal><table>
-    <thead><tr><th>#</th><th>Bezeichnung</th><th>Beschreibung</th><th>P</th><th>A</th><th>RF</th><th>Verzögerung (Wochen)</th><th>Maßnahmen</th><th>Kosten</th></tr></thead>
-    <tbody><tr data-risk="1"><td><span class="rid">1</span></td><td><b>Akustikziel wird nicht erreicht</b></td><td>Die angestrebte Schallreduktion bzw. die gewünschte störungsarme Aufnahmequalität wird im Schulbetrieb nicht erreicht.</td><td class="num">35</td><td class="num">60</td><td><div class="rf"><span class="num">2100</span><span class="bar"><i style="--w:56%"></i></span></div></td><td class="num">3</td><td>Akustikkonzept früh testen; Absorberpositionen variieren; Messungen vor der Endmontage.</td><td class="num">150 €</td></tr><tr data-risk="2"><td><span class="rid">2</span></td><td><b>Elektrische Integration verzögert sich</b></td><td>Material- oder Planungsprobleme verzögern die Integration von Stromversorgung, Licht, Lüftung und Sensorik.</td><td class="num">25</td><td class="num">80</td><td><div class="rf"><span class="num">2000</span><span class="bar"><i style="--w:53%"></i></span></div></td><td class="num">3</td><td>Schaltplan und Materialliste früh prüfen; kritische Komponenten zuerst beschaffen.</td><td class="num">100 €</td></tr><tr data-risk="3"><td><span class="rid">3</span></td><td><b>Material- oder Verbindungsteile fehlen</b></td><td>Benötigte Bau- oder Verbindungsteile sind nicht rechtzeitig verfügbar oder passen nicht wie geplant.</td><td class="num">45</td><td class="num">60</td><td><div class="rf"><span class="num">2700</span><span class="bar"><i style="--w:72%"></i></span></div></td><td class="num">3</td><td>Standardteile bevorzugen; Ersatzkomponenten definieren; Bauproben durchführen.</td><td class="num">150 €</td></tr><tr data-risk="4"><td><span class="rid">4</span></td><td><b>Netzwerk- oder Serverprobleme</b></td><td>Übertragung, Speicher oder Serverzugriff funktionieren im Schulnetz nicht zuverlässig.</td><td class="num">35</td><td class="num">55</td><td><div class="rf"><span class="num">1925</span><span class="bar"><i style="--w:51%"></i></span></div></td><td class="num">3</td><td>Übertragung unabhängig testen; Fehlerprotokollierung und lokaler Zwischenspeicher vorsehen.</td><td class="num">80 €</td></tr><tr data-risk="5"><td><span class="rid">5</span></td><td><b>Auf- und Abbau nicht nutzerfreundlich</b></td><td>Die zerlegte Kammer ist zu aufwendig zu montieren oder benötigt zu viele Einzelschritte.</td><td class="num">40</td><td class="num">70</td><td><div class="rf"><span class="num">2800</span><span class="bar"><i style="--w:75%"></i></span></div></td><td class="num">3</td><td>Verbindungen vereinfachen; Module kennzeichnen; drei reale Auf-/Abbauzyklen durchführen.</td><td class="num">100 €</td></tr><tr data-risk="6"><td><span class="rid">6</span></td><td><b>Zeit- oder Know-how-Engpass</b></td><td>Neue technische Themen führen zu Verzögerungen bei Konstruktion, Akustik, Netzwerk oder Integration.</td><td class="num">50</td><td class="num">75</td><td><div class="rf"><span class="num">3750</span><span class="bar"><i style="--w:100%"></i></span></div></td><td class="num">4</td><td>Aufgaben früh in Teilpakete zerlegen; Wissen im Team teilen; kritische Themen früh klären.</td><td class="num">0 €</td></tr><tr data-risk="7"><td><span class="rid">7</span></td><td><b>Anforderungen ändern sich nach Tests</b></td><td>Nutzerfeedback oder Testergebnisse führen zu Änderungen an Konstruktion, Bedienung oder Workflow.</td><td class="num">30</td><td class="num">45</td><td><div class="rf"><span class="num">1350</span><span class="bar"><i style="--w:36%"></i></span></div></td><td class="num">2</td><td>Anforderungen vor der Endmontage abgleichen; Änderungsreserve einplanen.</td><td class="num">0 €</td></tr></tbody>
-  </table></div>
-  <p class="note">P = Eintrittswahrscheinlichkeit des Risikos, A = Schadensausmaß bei Eintritt des Risikos, RF = P × A. Die Werte sind Planwerte für die Antragstellung. Die priorisierten Risiken werden in der Matrix nach Eintrittswahrscheinlichkeit und Schadensausmaß eingeordnet. Risiken im A-Bereich werden mit konkreten Gegenmaßnahmen verfolgt.</p>
-  <noscript><img src="risikomatrix.png" alt="Risikomatrix" style="background:#fff;border-radius:12px;margin-top:20px"></noscript>
-</div></section>
-
-<!-- ===================== 7 MEILENSTEINE ===================== -->
-<section id="meilensteine"><div class="wrap">
-  <div class="section-head" data-reveal><span class="num">07 — MEILENSTEINLISTE</span><h2>Der Weg zur <span class="grad">fertigen Kammer</span></h2><p>Geschätzte SOLL-Termine – die IST-Termine werden im Projektverlauf ergänzt.</p></div>
-  <div class="tl" id="timeline" data-reveal aria-hidden="true">
-    <div class="tl-track"><div class="tl-fill"></div><div class="tl-today">Heute</div></div>
-    <span class="tl-start">Sep. 2026</span><span class="tl-end">Mai 2027</span>
-  </div>
-  <ol class="ms-list" id="msList"><li class="ms-item" data-date="2026-10-31" data-reveal style="--d:1"><div class="n"><span>MS 1</span><span class="st">geplant</span></div><div class="date">Ende Okt. 2026</div><p>Anforderungsanalyse und Projektplanung abgeschlossen</p></li><li class="ms-item" data-date="2027-01-15" data-reveal style="--d:2"><div class="n"><span>MS 2</span><span class="st">geplant</span></div><div class="date">Mitte Jan. 2027</div><p>Drei 3D-Konzepte und Bauplanung abgeschlossen</p></li><li class="ms-item" data-date="2027-02-15" data-reveal style="--d:3"><div class="n"><span>MS 3</span><span class="st">geplant</span></div><div class="date">Mitte Feb. 2027</div><p>VR-Bewertung durchgeführt und Bauversion festgelegt</p></li><li class="ms-item" data-date="2027-02-28" data-reveal style="--d:4"><div class="n"><span>MS 4</span><span class="st">geplant</span></div><div class="date">Ende Feb. 2027</div><p>Grundkonstruktion, Verstaubarkeit und Akustik umgesetzt</p></li><li class="ms-item" data-date="2027-03-15" data-reveal style="--d:5"><div class="n"><span>MS 5</span><span class="st">geplant</span></div><div class="date">Mitte März 2027</div><p>Audio, Elektrik und Sync-Server funktionsfähig</p></li><li class="ms-item" data-date="2027-04-15" data-reveal style="--d:6"><div class="n"><span>MS 6</span><span class="st">geplant</span></div><div class="date">Mitte Apr. 2027</div><p>Systemtests und technische Abnahme abgeschlossen</p></li><li class="ms-item" data-date="2027-04-30" data-reveal style="--d:7"><div class="n"><span>MS 7</span><span class="st">geplant</span></div><div class="date">Ende Apr. 2027</div><p>Abschlussdokumentation und Endpräsentation abgeschlossen</p></li></ol>
-  <details class="card" style="margin-top:28px;padding:0" data-reveal><summary style="padding:18px 24px;cursor:pointer;font-weight:600">Meilensteinliste als Tabelle (SOLL / IST)</summary>
-    <div class="table-wrap" style="border:0;border-top:1px solid var(--line);border-radius:0 0 16px 16px"><table><thead><tr><th>#</th><th>Meilenstein</th><th>SOLL-Termin</th><th>IST-Termin</th></tr></thead><tbody><tr><td class="num">1</td><td>Anforderungsanalyse und Projektplanung abgeschlossen</td><td class="num">Ende Okt. 2026</td><td class="num">–</td></tr><tr><td class="num">2</td><td>Drei 3D-Konzepte und Bauplanung abgeschlossen</td><td class="num">Mitte Jan. 2027</td><td class="num">–</td></tr><tr><td class="num">3</td><td>VR-Bewertung durchgeführt und Bauversion festgelegt</td><td class="num">Mitte Feb. 2027</td><td class="num">–</td></tr><tr><td class="num">4</td><td>Grundkonstruktion, Verstaubarkeit und Akustik umgesetzt</td><td class="num">Ende Feb. 2027</td><td class="num">–</td></tr><tr><td class="num">5</td><td>Audio, Elektrik und Sync-Server funktionsfähig</td><td class="num">Mitte März 2027</td><td class="num">–</td></tr><tr><td class="num">6</td><td>Systemtests und technische Abnahme abgeschlossen</td><td class="num">Mitte Apr. 2027</td><td class="num">–</td></tr><tr><td class="num">7</td><td>Abschlussdokumentation und Endpräsentation abgeschlossen</td><td class="num">Ende Apr. 2027</td><td class="num">–</td></tr></tbody></table></div>
-  </details>
-</div></section>
-
-<!-- ===================== 8 RESSOURCEN ===================== -->
-<section id="ressourcen" class="alt"><div class="wrap">
-  <div class="section-head" data-reveal><span class="num">08 — PROJEKTRESSOURCEN</span><h2>Projekt&shy;ressourcen</h2></div>
-  <h3 class="sub-h first" data-reveal>8.1 Soll – Ist Vergleich</h3>
-  <div class="table-wrap" data-reveal><table>
-    <thead><tr><th>SOLL Bereich</th><th>IST</th><th>Risiko-Nr.</th><th>PSP-Code / Userstory</th></tr></thead>
-    <tbody>
-      <tr><td><b>3D-/VR-/AR-Software</b></td><td><span class="pill mid">teilweise</span> Blender/Fusion und geeignete Hardware verfügbar</td><td class="num">6</td><td class="num">5</td></tr>
-      <tr><td><b>Akustikmessung / Dämmmaterial</b></td><td><span class="pill mid">teilweise</span> Messmittel und Materialien müssen abgestimmt/beschafft werden</td><td class="num">1</td><td class="num">2</td></tr>
-      <tr><td><b>Elektrotechnik / Sensorik</b></td><td><span class="pill mid">teilweise</span> Komponenten teilweise zu beschaffen</td><td class="num">2</td><td class="num">3</td></tr>
-      <tr><td><b>Mini-PC / Raspberry Pi / Server</b></td><td><span class="pill mid">teilweise</span> schulinterne Infrastruktur wird genutzt</td><td class="num">4</td><td class="num">4</td></tr>
-      <tr><td><b>Baumaterial / Verbindungstechnik</b></td><td><span class="pill hi">nicht vollständig</span> Beschaffung erforderlich</td><td class="num">3, 5</td><td class="num">2</td></tr>
-    </tbody>
-  </table></div>
-  <div class="res-grid" style="margin-top:24px">
-    <div class="card" data-reveal>
-      <span class="kicker">8.2 Personelle Ressourcen</span><h3>Personenstunden</h3>
-      <div class="hbar"><span>Kevin Zheng</span><span class="track"><i style="--w:100%;--d:0"></i></span><span class="v">200 h</span></div>
-      <div class="hbar"><span>Naila Subasic</span><span class="track"><i style="--w:100%;--d:1"></i></span><span class="v">200 h</span></div>
-      <div class="hbar"><span>Angelika Zimmermann</span><span class="track"><i style="--w:100%;--d:2"></i></span><span class="v">200 h</span></div>
-      <div class="hbar"><span>Maximilian Popek</span><span class="track"><i style="--w:100%;--d:3"></i></span><span class="v">200 h</span></div>
-      <div class="total"><span>Summe</span><b><span data-count="800">800</span> <em>h</em></b></div>
-    </div>
-    <div class="card" data-reveal style="--d:1">
-      <span class="kicker">8.3 Erwartete Kosten</span><h3>Kostenrahmen (Bandbreite von–bis, Skala 0–800 €)</h3>
-      <div class="hbar"><span>Konstruktions- und Verbindungsmaterial</span><span class="track"><i style="--from:50%;--w:37.5%;--d:0"></i></span><span class="v">€ 400–700</span></div>
-      <div class="hbar"><span>Akustikdämmung, Absorber und Innenausbau</span><span class="track"><i style="--from:31.25%;--w:31.25%;--d:1"></i></span><span class="v">€ 250–500</span></div>
-      <div class="hbar"><span>Elektrotechnik, Sensorik und Beleuchtung</span><span class="track"><i style="--from:12.5%;--w:18.75%;--d:2"></i></span><span class="v">€ 100–250</span></div>
-      <div class="hbar"><span>Netzwerk, Speicher und sonstige IT-Komponenten</span><span class="track"><i style="--from:6.25%;--w:25%;--d:3"></i></span><span class="v">€ 50–250</span></div>
-      <div class="total"><span>Gesamtkosten</span><b><em>€</em> 800 – 2.000</b></div>
+    <!-- Signalweg -->
+    <div class="card flow" data-reveal>
+      <span class="k">Signalweg · Ziel-H 4 &amp; Ziel-O 5</span>
+      <h3>Vom Mikrofon bis zum Server</h3>
+      <div class="flow-row">
+        <div class="node">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg>
+          <b>Mikrofonierung</b><small>H4a</small>
+        </div>
+        <div class="link" aria-hidden="true"><i></i><i></i></div>
+        <div class="node">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="2" y="7" width="20" height="10" rx="2"/><circle cx="7" cy="12" r="2"/><circle cx="13" cy="12" r="2"/><path d="M18 10v4"/></svg>
+          <b>Audio-Interface</b><small>H4a</small>
+        </div>
+        <div class="link" aria-hidden="true"><i></i><i></i></div>
+        <div class="node hl">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M5 15v-3M8 15V9M11 15v-5M14 15v-2M17 15V8M2 8h20"/></svg>
+          <b>Cubase-Aufnahmetemplate</b><small>H4b–d · Bass-, Höhen- &amp; Absorber-Kompensation</small>
+        </div>
+        <div class="link dash" aria-hidden="true"><i></i></div>
+        <div class="node opt">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/></svg>
+          <b>Schulinterner Sync-Server</b><small>optional · O5</small>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="grid-2" style="margin-top:24px">
-    <p class="note" data-reveal>Die Finanzierung erfolgt im Rahmen der verfügbaren Projektmittel. Nach Abstimmung mit den Projektbetreuern werden bei Bedarf Sachspenden, Materialunterstützung oder die Nutzung vorhandener Infrastruktur bei externen Partnern angefragt.</p>
-    <p class="note" data-reveal><b style="color:var(--text)">8.4 Kostendeckung:</b> Zum Zeitpunkt der Antragstellung sind noch keine externen Kooperationspartner verbindlich fixiert. Mögliche Material-, Infrastruktur- oder Fachunterstützung wird nach Abstimmung mit den Projektbetreuern angefragt.</p>
-  </div>
-</div></section>
+</section>
 
-<!-- ===================== 9 PARTNER ===================== -->
-<section id="partner"><div class="wrap">
-  <div class="section-head" data-reveal><span class="num">09 — GEPLANTE EXTERNE KOOPERATIONSPARTNER</span><h2>Sponsoren &amp; <span class="grad">Partner</span></h2><p>Sponsoren sind Unternehmen/Organisationen, die entweder Geldmittel oder Materialien für das Projekt zur Verfügung stellen. Auch die kostenlose Nutzung von Werkstätten oder Maschinen wäre ein Sponsoring. Sponsoren beeinflussen die Projektergebnisse nicht.</p></div>
-  <div class="partner-grid">
-    <div class="card slot" data-reveal><div class="ph">+</div><h3>Noch nicht festgelegt</h3><p>Material- oder Sachunterstützung nach Absprache</p><span class="val">Wert des Sponsorings: offen</span></div>
-    <div class="card slot" data-reveal style="--d:1"><div class="ph">+</div><h3>Noch nicht festgelegt</h3><p>Nutzung vorhandener Infrastruktur bzw. Fachwissen nach Absprache</p><span class="val">Wert des Sponsorings: offen</span></div>
-    <div class="card cta-card" data-reveal style="--d:2"><span class="kicker">Interesse?</span><h3>Synq. unterstützen</h3><p>Sie möchten das Projekt mit Material, Infrastruktur oder Fachwissen unterstützen? Wir freuen uns über Ihre Nachricht.</p><a class="btn btn-primary" style="margin-top:18px" href="mailto:naila.subasic@htl.rennweg.at?subject=Sponsoring%20Synq.">Kontakt aufnehmen</a></div>
-  </div>
-</div></section>
+<!-- ===================== 02 Ziele ===================== -->
+<section id="ziele" class="alt">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">02 — Projektziele</span>
+      <h2>Was <span class="grad">Synq.</span> erreichen soll.</h2>
+      <p>Sieben Hauptziele, sechs optionale Ziele und fünf bewusst ausgeschlossene NICHT-Ziele. Jedes Teilziel ist einem Teammitglied zugeordnet: Filter nach Person, um die Zuständigkeiten zu sehen.</p>
+    </div>
+    <div class="goal-bar" data-reveal>
+      <div class="tabs" role="tablist" aria-label="Zielkategorien" id="goalTabs">
+        <span class="tab-ind" aria-hidden="true"></span>
+        <button class="tab" role="tab" id="tab-h" aria-controls="panel-h" aria-selected="true">Hauptziele <span class="cnt">7</span></button>
+        <button class="tab" role="tab" id="tab-o" aria-controls="panel-o" aria-selected="false" tabindex="-1">Optionale Ziele <span class="cnt">6</span></button>
+        <button class="tab" role="tab" id="tab-n" aria-controls="panel-n" aria-selected="false" tabindex="-1">NICHT-Ziele <span class="cnt">5</span></button>
+      </div>
+      <div class="goal-tools">
+        <span class="who-label">Zuständig:</span>
+        <div class="who" id="whoFilter" role="group" aria-label="Teilziele nach Person hervorheben"></div>
+        <button class="btn small" type="button" id="expandAll" aria-pressed="false">Alle aufklappen</button>
+      </div>
+    </div>
+    <div class="panel" id="panel-h" role="tabpanel" aria-labelledby="tab-h"><div class="goals" id="goals-h"></div></div>
+    <div class="panel" id="panel-o" role="tabpanel" aria-labelledby="tab-o" hidden><div class="goals" id="goals-o"></div></div>
+    <div class="panel" id="panel-n" role="tabpanel" aria-labelledby="tab-n" hidden><div class="goals" id="goals-n"></div></div>
 
-<!-- ===================== 10 VERWERTUNG ===================== -->
-<section id="verwertung" class="alt"><div class="wrap">
-  <div class="section-head" data-reveal><span class="num">10 — GEPLANTE VERWERTUNG DER ERGEBNISSE</span><h2>Was <span class="grad">bleibt</span></h2></div>
-  <div class="use-grid">
-    <div class="card" data-reveal><p>Die fertige Synq.-Kammer soll für schulische Audioaufgaben, Podcasts, Voice-over-Produktionen und insbesondere für getrennte Maturaaufnahmen im Bereich Medientechnik eingesetzt werden. Durch die schnelle Montage, Demontage und platzsparende Lagerung kann sie nur bei tatsächlichem Bedarf aufgebaut werden, ohne dauerhaft Unterrichts- oder Arbeitsfläche zu blockieren.</p><p>Die technische Dokumentation, die 3D-Modelle, die akustischen Messergebnisse und das Cubase-Template sollen für spätere Schulprojekte wiederverwendbar sein. Der schulinterne Audio-/Serverworkflow kann bei Bedarf für weitere Aufnahmesituationen angepasst und erweitert werden.</p></div>
-    <ul class="use-list" data-reveal style="--d:1"><li>Getrennte Maturaaufnahmen (Medientechnik)</li><li>Podcasts &amp; Voice-over-Produktionen</li><li>Schulische Audioaufgaben</li><li>Wiederverwendbare Doku, 3D-Modelle &amp; Cubase-Template</li></ul>
+    <h3 class="sub-h" data-reveal><span class="mono">2.4</span> Individuelle Aufgabenstellungen</h3>
+    <div class="matrix" id="matrix" data-reveal></div>
+    <p class="assign-note" data-reveal>Aufgabenstellung (für alle Teammitglieder): Die zugewiesenen Ziele und Anforderungen werden eigenverantwortlich geplant, umgesetzt, getestet und dokumentiert. Themenschwerpunkte und Ziel-Zuordnungen je Person stehen in den Teamkarten unter <a href="#team">03 — Projektorganisation</a>.</p>
   </div>
-  <h3 class="sub-h" data-reveal>Abnahmekriterien</h3>
-  <div class="crit-grid">
-    <div class="crit" data-reveal><span class="tag">A.1 Konstruktion <i>✓</i></span><p>Die Kammer kann vollständig montiert und wieder zerlegt werden; die Module sind gekennzeichnet und für die Lagerung geordnet.</p></div>
-    <div class="crit" data-reveal style="--d:1"><span class="tag">A.2 Akustik <i>✓</i></span><p>Die schulischen Vergleichsmessungen und Testaufnahmen sind dokumentiert und für die Bewertung der Raumakustik herangezogen.</p></div>
-    <div class="crit" data-reveal style="--d:2"><span class="tag">A.3 Audio / Cubase <i>✓</i></span><p>Der definierte Aufnahme-Workflow funktioniert und das Cubase-Template berücksichtigt die ermittelten akustischen Eigenschaften inklusive Bass-, Höhen- und Absorberkompensation.</p></div>
-    <div class="crit" data-reveal><span class="tag">A.4 IT <i>✓</i></span><p>Audioaufnahmen können automatisiert über das schulinterne Netzwerk auf dem zentralen Server gespeichert und berechtigten Benutzern zugänglich gemacht werden.</p></div>
-    <div class="crit" data-reveal style="--d:1"><span class="tag">A.5 Dokumentation <i>✓</i></span><p>Bauanleitung, Schaltpläne, Netzwerk-/Serverkonfigurationen, Testberichte und die finale PDF-Dokumentation liegen vollständig vor.</p><p>Die Entwicklung und der Baufortschritt der „Synq.“-Kammer sind dokumentiert und die Sponsoring- und Kooperationskontakte sind nachvollziehbar erfasst.</p></div>
+</section>
+
+<!-- ===================== 03 Team ===================== -->
+<section id="team">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">03 — Projektorganisation</span>
+      <h2>Team &amp; <span class="grad">Kontakt</span></h2>
+      <p>Scrum-Team der 5AX mit individueller Betreuung durch zwei Hauptbetreuer.</p>
+    </div>
+    <div class="team" id="teamGrid"></div>
+    <h3 class="sub-h" data-reveal>Projektbetreuung</h3>
+    <div class="mentors" id="mentorGrid"></div>
+    <details class="fold team-table-toggle" data-reveal>
+      <summary>3.2 Projektteam als Tabelle</summary>
+      <div class="fold-body">
+        <table class="tbl stack" id="teamTable">
+          <thead><tr><th>Funktion</th><th>Name</th><th>Kürzel</th><th>E-Mail</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
   </div>
-</div></section>
+</section>
+
+<!-- ===================== 04 Stakeholder ===================== -->
+<section id="stakeholder" class="alt">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">04 — Stakeholderanalyse</span>
+      <h2>Wer <span class="grad">mitredet</span>.</h2>
+    </div>
+    <div class="sh-grid" id="shGrid"></div>
+    <h3 class="sub-h" data-reveal><span class="mono">4.1</span> Stakeholder Portfolio</h3>
+    <div class="portfolio" data-reveal>
+      <div class="pf-y">Einfluss / Macht →</div>
+      <div class="pf-grid">
+        <div class="quad q-satisfy"><h4>Zufriedenstellen</h4><span class="pill"><b>E-02</b> Nutzergruppen</span></div>
+        <div class="quad q-manage"><h4>Eng managen</h4><span class="pill"><b>I-01</b> Projektteam</span><span class="pill"><b>I-02</b> Projektbetreuung</span></div>
+        <div class="quad q-monitor"><h4>Überwachen</h4><span class="none">Keine priorisierten Stakeholder</span></div>
+        <div class="quad q-inform"><h4>Informieren <small>auf dem Laufenden halten</small></h4><span class="pill"><b>E-01</b> Sponsoren und Kooperationspartner</span></div>
+      </div>
+      <div class="pf-x">Interesse / Betroffenheit →</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 05 PSP ===================== -->
+<section id="psp">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">05 — Objektstrukturplan / PSP</span>
+      <h2>Das Projekt in <span class="grad">Paketen</span>.</h2>
+    </div>
+    <p class="psp-intro" data-reveal>Der Projektstrukturplan gliedert die Umsetzung in die Arbeitspakete Planung, Konstruktion und Akustik, Audio und Elektrotechnik, Server und Netzwerk, digitale Visualisierung, Tests und Abnahme sowie Dokumentation und Präsentation.</p>
+    <div class="psp" id="pspTree">
+      <div class="psp-root"><div class="root">Synq.</div></div>
+      <div class="psp-bus" aria-hidden="true"></div>
+      <div class="psp-cols" id="pspCols"></div>
+    </div>
+    <div class="legend" data-reveal style="margin-top:22px">
+      <span><i style="border:1px solid var(--line);background:var(--card)"></i>Arbeitspaket</span>
+      <span><i style="border:1.5px dashed var(--accent-1);background:var(--a1-08)"></i>Meilenstein</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 06 Risiken ===================== -->
+<section id="risiken" class="alt">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">06 — Risikoanalyse</span>
+      <h2>Risiken im <span class="grad">Blick</span>.</h2>
+      <p>Die priorisierten Risiken werden in der Matrix nach Eintrittswahrscheinlichkeit und Schadensausmaß eingeordnet. Risiken im A-Bereich werden mit konkreten Gegenmaßnahmen verfolgt. Punkt oder Tabellenzeile anklicken für Details.</p>
+    </div>
+    <div class="risk-wrap">
+      <div class="card matrix-card" data-reveal>
+        <span class="k">6.2 Risikoportfolio</span>
+        <svg id="riskSvg" viewBox="0 0 420 410" role="group" aria-label="Risikomatrix: Eintrittswahrscheinlichkeit P gegen Schadensausmaß A"></svg>
+        <noscript><img src="risikomatrix.png" alt="Risikomatrix der Diplomarbeit Synq." loading="lazy"></noscript>
+        <div class="legend">
+          <span><i style="background:color-mix(in srgb,var(--high) 35%,transparent)"></i>A: P + A ≥ 126</span>
+          <span><i style="background:color-mix(in srgb,var(--warn) 30%,transparent)"></i>B: dazwischen</span>
+          <span><i style="background:color-mix(in srgb,var(--ok) 30%,transparent)"></i>C: P + A ≤ 74</span>
+        </div>
+      </div>
+      <div class="card risk-detail" id="riskDetail" data-reveal style="--d:1" aria-live="polite"></div>
+    </div>
+    <div class="card risk-table-card" data-reveal>
+      <table class="tbl stack risk-tbl" id="riskTable">
+        <caption class="sr-only">6.1 Risikotabelle</caption>
+        <thead><tr><th>#</th><th>Bezeichnung</th><th class="c">P</th><th class="c">A</th><th>RF = P × A</th><th class="c">Zone</th><th class="c">Verzögerung</th><th class="r">Kosten</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="fine" data-reveal>P = Eintrittswahrscheinlichkeit des Risikos, A = Schadensausmaß bei Eintritt des Risikos, RF = P × A. Die Werte sind Planwerte für die Antragstellung.</p>
+  </div>
+</section>
+
+<!-- ===================== 07 Meilensteine ===================== -->
+<section id="meilensteine">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">07 — Meilensteinliste</span>
+      <h2>Von September bis <span class="grad">Mai</span>.</h2>
+      <p>Darstellung der Meilensteine mit geschätzten SOLL-Terminen. Die IST-Termine können zum Zeitpunkt des Ausfüllens natürlich noch nicht fixiert sein.</p>
+    </div>
+    <div class="card tl-card" data-reveal>
+      <div class="tl-head">
+        <span class="k" style="margin:0">Zeitstrahl Sep. 2026 – Mai 2027</span>
+        <span class="countdown" id="countdown"></span>
+      </div>
+      <div class="tl" id="timeline"></div>
+      <div class="vtl" id="vtimeline"></div>
+    </div>
+    <div class="ms-cards" id="msCards"></div>
+    <details class="fold ms-fold" data-reveal>
+      <summary>SOLL / IST-Tabelle</summary>
+      <div class="fold-body">
+        <table class="tbl stack" id="msTable">
+          <thead><tr><th>#</th><th>Meilenstein</th><th>SOLL-Termin</th><th>IST-Termin</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ===================== 08 Ressourcen ===================== -->
+<section id="ressourcen" class="alt">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">08 — Projektressourcen</span>
+      <h2>Zeit, Material, <span class="grad">Budget</span>.</h2>
+    </div>
+
+    <div class="card tbl-card" data-reveal>
+      <h3 class="sub-h" style="margin:18px 0 6px"><span class="mono">8.1</span> Projektressourcen: Soll – Ist Vergleich</h3>
+      <p class="fine" style="margin:0 0 6px">Falls Ressourcen nicht ausreichend vorhanden sind, wirkt sich das auf die Risikoanalyse (Risiko-Nr.) und/oder auf die Arbeitspakete des Projektstrukturplans (PSP-Code) aus.</p>
+      <table class="tbl stack soll-tbl">
+        <thead><tr><th>SOLL Bereich</th><th>IST</th><th class="c">Risiko-Nr.</th><th class="c">PSP-Code / Userstory</th></tr></thead>
+        <tbody>
+          <tr><td class="main">3D-/VR-/AR-Software</td><td data-l="IST"><span><span class="lvl part">teilweise</span><br><span class="ist">teilweise vorhanden; Blender/Fusion und geeignete Hardware verfügbar</span></span></td><td class="c mono" data-l="Risiko-Nr.">6</td><td class="c mono" data-l="PSP-Code">5</td></tr>
+          <tr><td class="main">Akustikmessung / Dämmmaterial</td><td data-l="IST"><span><span class="lvl part">teilweise</span><br><span class="ist">teilweise vorhanden; Messmittel und Materialien müssen abgestimmt/beschafft werden</span></span></td><td class="c mono" data-l="Risiko-Nr.">1</td><td class="c mono" data-l="PSP-Code">2</td></tr>
+          <tr><td class="main">Elektrotechnik / Sensorik</td><td data-l="IST"><span><span class="lvl part">teilweise</span><br><span class="ist">teilweise vorhanden; Komponenten teilweise zu beschaffen</span></span></td><td class="c mono" data-l="Risiko-Nr.">2</td><td class="c mono" data-l="PSP-Code">3</td></tr>
+          <tr><td class="main">Mini-PC / Raspberry Pi / Server</td><td data-l="IST"><span><span class="lvl part">teilweise</span><br><span class="ist">teilweise vorhanden; schulinterne Infrastruktur wird genutzt</span></span></td><td class="c mono" data-l="Risiko-Nr.">4</td><td class="c mono" data-l="PSP-Code">4</td></tr>
+          <tr><td class="main">Baumaterial / Verbindungstechnik</td><td data-l="IST"><span><span class="lvl miss">fehlt</span><br><span class="ist">nicht vollständig vorhanden; Beschaffung erforderlich</span></span></td><td class="c mono" data-l="Risiko-Nr.">3, 5</td><td class="c mono" data-l="PSP-Code">2</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="res-grid">
+      <div class="card spot" data-reveal>
+        <span class="k">8.2 Personelle Ressourcen</span>
+        <h3>Personenstunden</h3>
+        <div id="hoursBars"></div>
+      </div>
+      <div class="card spot" data-reveal style="--d:1">
+        <span class="k">8.3 Erwartete Kosten für die Durchführung</span>
+        <h3>Kostenrahmen (von – bis)</h3>
+        <div id="costBars"></div>
+        <div class="scale"><span>€ 0</span><span>€ 200</span><span>€ 400</span><span>€ 600</span><span>€ 800</span></div>
+        <div class="total"><span class="muted">Gesamtkosten</span><b>€ 800 – 2.000</b></div>
+      </div>
+    </div>
+    <div class="note-box" data-reveal>
+      <p>Die Finanzierung erfolgt im Rahmen der verfügbaren Projektmittel. Nach Abstimmung mit den Projektbetreuern werden bei Bedarf Sachspenden, Materialunterstützung oder die Nutzung vorhandener Infrastruktur bei externen Partnern angefragt.</p>
+      <p><b>8.4 Kostendeckung:</b> Zum Zeitpunkt der Antragstellung sind noch keine externen Kooperationspartner verbindlich fixiert. Mögliche Material-, Infrastruktur- oder Fachunterstützung wird nach Abstimmung mit den Projektbetreuern angefragt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 09 Partner ===================== -->
+<section id="partner">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">09 — Geplante externe Kooperationspartner</span>
+      <h2>Sponsoren &amp; <span class="grad">Partner</span></h2>
+      <p>Sponsoren sind Unternehmen/Organisationen, die entweder Geldmittel oder Materialien für das Projekt zur Verfügung stellen. Auch die kostenlose Nutzung von Werkstätten oder Maschinen wäre ein Sponsoring. Sponsoren beeinflussen die Projektergebnisse nicht.</p>
+    </div>
+    <div class="partners">
+      <div class="card ph" data-reveal>
+        <span class="plus-big" aria-hidden="true">+</span>
+        <h3>Noch nicht festgelegt</h3>
+        <p>Material- oder Sachunterstützung nach Absprache</p>
+        <span class="val">Wert des Sponsorings: offen</span>
+      </div>
+      <div class="card ph" data-reveal style="--d:1">
+        <span class="plus-big" aria-hidden="true">+</span>
+        <h3>Noch nicht festgelegt</h3>
+        <p>Nutzung vorhandener Infrastruktur bzw. Fachwissen nach Absprache</p>
+        <span class="val">Wert des Sponsorings: offen</span>
+      </div>
+      <div class="card cta" data-reveal style="--d:2">
+        <svg class="cta-hex" aria-hidden="true"><use href="#logo-hex"/></svg>
+        <span class="k">Interesse?</span>
+        <h3>Synq. unterstützen</h3>
+        <p>Sie möchten das Projekt mit Material, Infrastruktur oder Fachwissen unterstützen? Wir freuen uns über Ihre Nachricht.</p>
+        <a class="btn" href="mailto:naila.subasic@htl.rennweg.at?subject=Sponsoring%20Synq.">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 10 Verwertung ===================== -->
+<section id="verwertung" class="alt">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <span class="num">10 — Geplante Verwertung der Ergebnisse</span>
+      <h2>Was <span class="grad">bleibt</span>.</h2>
+    </div>
+    <div class="use-grid">
+      <div class="card spot" data-reveal>
+        <p class="muted">Die fertige Synq.-Kammer soll für schulische Audioaufgaben, Podcasts, Voice-over-Produktionen und insbesondere für getrennte Maturaaufnahmen im Bereich Medientechnik eingesetzt werden. Durch die schnelle Montage, Demontage und platzsparende Lagerung kann sie nur bei tatsächlichem Bedarf aufgebaut werden, ohne dauerhaft Unterrichts- oder Arbeitsfläche zu blockieren.</p>
+        <p class="muted">Die technische Dokumentation, die 3D-Modelle, die akustischen Messergebnisse und das Cubase-Template sollen für spätere Schulprojekte wiederverwendbar sein. Der schulinterne Audio-/Serverworkflow kann bei Bedarf für weitere Aufnahmesituationen angepasst und erweitert werden.</p>
+      </div>
+      <div class="uses" data-reveal style="--d:1">
+        <div class="use"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>Getrennte Maturaaufnahmen (Medientechnik)</div>
+        <div class="use"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Podcasts &amp; Voice-over-Produktionen</div>
+        <div class="use"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><rect x="3" y="15" width="4" height="6" rx="1.5"/><rect x="17" y="15" width="4" height="6" rx="1.5"/></svg>Schulische Audioaufgaben</div>
+        <div class="use"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>Wiederverwendbare Doku, 3D-Modelle &amp; Cubase-Template</div>
+      </div>
+    </div>
+    <h3 class="sub-h" data-reveal>Abnahmekriterien</h3>
+    <div class="criteria" id="criteria"></div>
+  </div>
+</section>
+
 </main>
 
-<footer><div class="wrap">
-  <div class="big" aria-hidden="true">Synq<span>.</span></div>
-  <div class="row"><span>© 2026 Synq. – Diplomarbeit an der HTL Wien 3 Rennweg · Projektnummer 3R IT 27 06</span><span>Schuljahr 2026/27</span></div>
-</div></footer>
-<button class="to-top" type="button" aria-label="Nach oben"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<!-- ===================== Footer ===================== -->
+<footer>
+  <div class="wrap">
+    <svg class="foot-word" viewBox="-4 -4 222 58" aria-hidden="true">
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <g class="o" stroke-width="10.5" id="footO"></g>
+        <g class="i" stroke-width="7.5" id="footI"></g>
+      </g>
+      <circle class="dot" cx="205" cy="41" r="5.5"/>
+    </svg>
+    <div class="foot-grid">
+      <div><b>Synq. – Verstaubare Studiokammer</b>Diplomarbeit · Schuljahr 2026/27<br>Projektnummer <span class="mono">3R IT 27 06</span></div>
+      <div><b>HTL Rennweg</b>Höhere Abteilung für Informationstechnologie<br>Klasse 5AX · Wien 3</div>
+      <div><b>Kontakt</b><a href="mailto:kevin.zheng@htl.rennweg.at">kevin.zheng@htl.rennweg.at</a><br><a href="#team">Ganzes Team →</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026/27 Zheng · Subasic · Zimmermann · Popek</span><span>Projektnummer 3R IT 27 06</span></div>
+  </div>
+</footer>
 
-<script>window.SYNQ_RISKS = [{"n": 1, "t": "Akustikziel wird nicht erreicht", "d": "Die angestrebte Schallreduktion bzw. die gewünschte störungsarme Aufnahmequalität wird im Schulbetrieb nicht erreicht.", "p": 35, "a": 60, "w": 3, "m": "Akustikkonzept früh testen; Absorberpositionen variieren; Messungen vor der Endmontage.", "c": "150 €"}, {"n": 2, "t": "Elektrische Integration verzögert sich", "d": "Material- oder Planungsprobleme verzögern die Integration von Stromversorgung, Licht, Lüftung und Sensorik.", "p": 25, "a": 80, "w": 3, "m": "Schaltplan und Materialliste früh prüfen; kritische Komponenten zuerst beschaffen.", "c": "100 €"}, {"n": 3, "t": "Material- oder Verbindungsteile fehlen", "d": "Benötigte Bau- oder Verbindungsteile sind nicht rechtzeitig verfügbar oder passen nicht wie geplant.", "p": 45, "a": 60, "w": 3, "m": "Standardteile bevorzugen; Ersatzkomponenten definieren; Bauproben durchführen.", "c": "150 €"}, {"n": 4, "t": "Netzwerk- oder Serverprobleme", "d": "Übertragung, Speicher oder Serverzugriff funktionieren im Schulnetz nicht zuverlässig.", "p": 35, "a": 55, "w": 3, "m": "Übertragung unabhängig testen; Fehlerprotokollierung und lokaler Zwischenspeicher vorsehen.", "c": "80 €"}, {"n": 5, "t": "Auf- und Abbau nicht nutzerfreundlich", "d": "Die zerlegte Kammer ist zu aufwendig zu montieren oder benötigt zu viele Einzelschritte.", "p": 40, "a": 70, "w": 3, "m": "Verbindungen vereinfachen; Module kennzeichnen; drei reale Auf-/Abbauzyklen durchführen.", "c": "100 €"}, {"n": 6, "t": "Zeit- oder Know-how-Engpass", "d": "Neue technische Themen führen zu Verzögerungen bei Konstruktion, Akustik, Netzwerk oder Integration.", "p": 50, "a": 75, "w": 4, "m": "Aufgaben früh in Teilpakete zerlegen; Wissen im Team teilen; kritische Themen früh klären.", "c": "0 €"}, {"n": 7, "t": "Anforderungen ändern sich nach Tests", "d": "Nutzerfeedback oder Testergebnisse führen zu Änderungen an Konstruktion, Bedienung oder Workflow.", "p": 30, "a": 45, "w": 2, "m": "Anforderungen vor der Endmontage abgleichen; Änderungsreserve einplanen.", "c": "0 €"}];</script>
+<button class="to-top" id="toTop" type="button" aria-label="Nach oben">
+  <svg class="ring" viewBox="0 0 50 50" aria-hidden="true"><rect x="1" y="1" width="48" height="48" rx="14" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" id="topRing"/></svg>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div class="tour-hud" id="tourHud" role="status" aria-live="polite">
+  <span id="tourLabel">Vorführmodus</span>
+  <span class="tbar"><span id="tourBar"></span></span>
+  <button type="button" id="tourStop">Beenden (Esc)</button>
+</div>
+
 <script src="script.js" defer></script>
 </body>
 </html>
