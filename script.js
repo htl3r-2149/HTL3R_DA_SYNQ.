@@ -504,10 +504,6 @@ $('#hoursBars').innerHTML = HOURS.map((r, i) => `<div class="hbar"><span>${esc(r
 $('#costBars').innerHTML = COSTS.map((c, i) => `<div class="range" style="--from:${c[1] / 800 * 100}%;--w:${(c[2] - c[1]) / 800 * 100}%;--d:${i}">
   <div class="top"><span>${i + 1}. ${esc(c[0])}</span><b>€ ${c[1]} – ${c[2]}</b></div><div class="track" aria-hidden="true"><span></span></div></div>`).join('');
 
-/* --- Footer-Schriftzug (Outline) --- */
-const wordPaths = $('#logo-word g').innerHTML;
-$('#footO').innerHTML = wordPaths; $('#footI').innerHTML = wordPaths;
-$$('#footO path, #footI path').forEach(p => { p.removeAttribute('stroke'); p.removeAttribute('stroke-width'); });
 
 /* ---------------------------------------------------------------------
    6. Scroll-Reveal, Hochzählen, Spotlight
@@ -660,28 +656,33 @@ hero.addEventListener('pointermove', e => { const r = hero.getBoundingClientRect
 hero.addEventListener('pointerleave', () => { mouse.on = false; });
 new IntersectionObserver(es => { heroVisible = es[0].isIntersecting; }).observe(hero);
 
-/* Balken-Breiten vom Plakat (oben / unten), in SVG-Einheiten */
-const BARS_TOP = [4, 14, 26, 37, 50, 65, 103, 128, 89, 52, 37, 26, 38, 58, 81, 50, 34];
-const BARS_BOT = [37, 56, 40, 65, 43, 32, 22, 14, 17, 10, 4];
+/* Balken 1:1 aus Plakat_DA_Synq_Kreativ_A1.pdf: [y, x0, x1, Strichstärke] in Plakat-Koordinaten.
+   Das Hexagon-Logo (442 × 497) wird im Emblem auf 100 Einheiten skaliert. */
+const BAR_K = 100 / 442, BAR_CY = 1175.5;
+const BARS = [
+  [165, 843, 843, 20], [209, 816, 869, 21.8], [254, 786, 899, 21.8], [300, 758, 927, 21.8], [347, 725, 960, 23.3],
+  [395, 685, 1001, 23.3], [448, 587, 1098, 23.3], [495, 522, 1163, 21.8], [539, 622, 1064, 23.3], [581, 719, 966, 23.3],
+  [624, 757, 928, 21.8], [666, 787, 899, 21.8], [707, 753, 932, 20.2], [750, 703, 983, 21.8], [792, 643, 1043, 20.2],
+  [834, 723, 963, 21.8], [878, 765, 920, 20.2],
+  [1479, 756, 930, 20.2], [1521, 707, 978, 18.7], [1561, 749, 937, 20.2], [1600, 684, 1001, 20.2], [1643, 740, 945, 20.2],
+  [1687, 770, 915, 20.2], [1731, 795, 890, 20.2], [1773, 815, 871, 20.2], [1815, 808, 877, 20.2], [1857, 826, 860, 18.7],
+  [1900, 843, 843, 20]
+];
 const barEls = [];
 function buildBars() {
-  const mk = (g, arr, y0, dir) => {
-    const max = Math.max(...arr);
-    arr.forEach((w, i) => {
-      const y = y0 + dir * i * 8.3;
-      const r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-      const t = w / max;
-      r.setAttribute('height', 4.2); r.setAttribute('rx', 2.1); r.setAttribute('y', y - 2.1);
-      r.style.fill = `color-mix(in srgb, var(--accent-1) ${Math.round(35 + 65 * t)}%, var(--accent-2))`;
-      g.appendChild(r);
-      barEls.push({ el: r, base: Math.max(w, 4), i: barEls.length, band: t });
-    });
-  };
-  mk($('#barsTop'), BARS_TOP.slice().reverse(), -68, -1);
-  mk($('#barsBot'), BARS_BOT, 60, 1);
+  const lens = BARS.map(([, x0, x1, lw]) => (x1 - x0 + lw) * BAR_K);
+  const max = Math.max(...lens);
+  BARS.forEach(([y, , , lw], i) => {
+    const th = lw * BAR_K, len = lens[i], t = len / max;
+    const r = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    r.setAttribute('height', th.toFixed(2)); r.setAttribute('rx', (th / 2).toFixed(2));
+    r.setAttribute('y', ((y - BAR_CY) * BAR_K - th / 2).toFixed(2));
+    r.style.fill = `color-mix(in srgb, var(--accent-1) ${Math.round(35 + 65 * t)}%, var(--accent-2))`;
+    (y < BAR_CY ? $('#barsTop') : $('#barsBot')).appendChild(r);
+    barEls.push({ el: r, base: len, min: th, i, band: t });
+  });
 }
 buildBars();
-const grille = $$('#grille line');
 
 function drawHero(t) {
   const lvl = AudioEngine.level;
@@ -721,11 +722,10 @@ function drawHero(t) {
       const bin = 2 + Math.floor((i % 14) * 3.2);
       s = .3 + 1.15 * (fr[bin] / 255);
     } else s = .8 + .2 * Math.sin(t * 2.2 + i * .55) + .06 * Math.sin(t * 5.1 + i);
-    const w = b.base * s;
+    const w = Math.max(b.min, b.base * s);
     b.el.setAttribute('width', w.toFixed(1));
     b.el.setAttribute('x', (-w / 2).toFixed(1));
   });
-  grille.forEach((l, i) => { l.style.transform = `scaleX(${1 + lvl * 1.4 + .15 * Math.sin(t * 6 + i)})`; });
   /* leichte Neigung zur Maus */
   if (mouse.on) {
     const rx = clamp((mouse.y - cy) / hH, -1, 1) * -8, ry = clamp((mouse.x - cx) / hW, -1, 1) * 10;
